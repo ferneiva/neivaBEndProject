@@ -6,15 +6,15 @@ if( empty($id) || !is_numeric($id) ) {
     die("Invalid reqquest");
 }
 
-require("models/providers.php");
+require("models/users.php");
 
-$model = new Provider();
+$model = new Users();
 
-$provider = $model->getDetail($id);
+$user = $model->getDetail($id);
 
-if( empty($provider) ) {
+if( empty($user) ) {
     http_response_code(404);
     die("Not found");
 }
 
-require("views/provider.php");
+require("views/user.php");

@@ -2,15 +2,20 @@
 
 require_once("base.php");
 
-class Providers extends Base
+class Users extends Base
 {
 	public function getAll() {
 		
 		$query = $this->db->prepare("
 			SELECT 
-				provider_id, name , country, city, urban_zone, skills, religion, ethnicity, resume
+				users.user_id, users.user_type, users.name ,
+				countries.name AS countryName, users.city, users.urban_zone, users.skills, users.resume
             FROM
-				providers
+				users
+			INNER JOIN countries
+			ON countries.code = users.country
+		
+		
 			
 		");
 		
@@ -19,10 +24,7 @@ class Providers extends Base
 		return $query->fetchAll();
 	}
 	
-}
 
-class Provider extends Base
-{
 	
 	public function getDetail($id) {
 
@@ -30,9 +32,9 @@ class Provider extends Base
 			SELECT
 				*
 			FROM
-				providers
+				users
 			WHERE
-				provider_id = ?
+				user_id = ?
 		");
 
 		$query->execute([
@@ -41,6 +43,6 @@ class Provider extends Base
 
 		return $query->fetch();
 	}
-}
 
+}
 	

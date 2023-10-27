@@ -8,54 +8,56 @@
     <link rel="stylesheet" href="/styles/home.css">
     <title>HELP</title>
 </head>
-    <body>
-    <header>
-        <div class="logo">
-            <img class="logo-img" src="/images/logo help.png" alt="HELP Logo" title="Logo">
-        </div>
-        <nav>
-            <ul class="ul-nav">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="provider-register.html">Helper register</a></li> 
-                <li><a href="provider-login.html">Helper login</a></li> 
-
-            </ul>
-        </nav>
-    </header>
+<body>
+<?php require ("templates/header.php"); ?>
     <main>
-    <div class="search-bar">
-        <form method="post" action="<?= ROOT ?>/admin/products">
-                <div class="search-area">
-                    <div>
-                        <label>
-                            SEARCH
-                            <input type="text" name="name">
-                        </label>
-                    </div>
-                    <div>
-                        <button class="go" type="submit" name="search">GO</button>
-                    </div>
+    <section class="search">
+        <div class="search-bar">
+            <form method="post" action="<?= ROOT ?>/admin/products">
+                    <div class="search-area">
+                        <div>
+                            <label>
+                                Search
+                                <input type="text" name="name">
+                            </label>
+                        </div>
+                        <div>
+                            <button class="go" type="submit" name="search">GO</button>
+                        </div>
 
-                </div>
-                    
-                <div class="search-comment">
-                HERE YOU CAN FIND AND BOOK CLEANING LABORER FOR YOUR HOUSE<br>
-                        (input city or your urban zone)
-                </div>
-        </form>
-    </div>
+                    </div>
+                        
+                    <div class="search-comment">
+                    Book helper for your house or let helper see your needs and contact you<br>
+                            (input city or your urban zone)
+                    </div>
+            </form>
+        </div>
+
+    </section>
+    
+
+    <h1>List of last users:</h1>
     
         
-        <ul class="providers-area">
+        <ul class="users-area">
 <?php
-        foreach($providers as $provider){
+        foreach($users as $user){
             echo '
-                <li class="provider-box">
-                    <a href="' .ROOT. '/providers/' .$provider["provider_id"] . '">
-                        ' . $provider["name"] . '
+                
+                <li class="user-bin">
+                    <a href="' .ROOT. '/users/' .$user["user_id"] . '">
+                    ' . $user["name"] . '
                     </a>
+                    <div class="user-info">
+                        <h2><strong>User type:</strong> ' .$user["user_type"]. ' </h2>
+                        <h2><strong>Country:</strong>  ' .$user["countryName"]. ' </h2>
+                        <h2><strong>Urban zone:</strong>  ' .$user["urban_zone"]. ' </h2>
+                    </div>
+
+                    
                 </li>
+                
             ';
         }
 ?>
@@ -65,5 +67,5 @@
         </div>
         
     </main>    
-    </body>
+</body>
 </html>

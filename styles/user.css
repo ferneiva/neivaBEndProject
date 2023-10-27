@@ -1,0 +1,60 @@
+.user-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 118px;
+    width: 89%;
+    margin-left: 66px;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+.user-img{
+    margin-left: 20px;
+    object-fit: cover;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+
+.user-info{
+    width: 89%;
+    background-color: rgba(216, 202, 139, 0.52);
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    margin-left: 66px;
+    margin-right: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+.user-list{
+    list-style: none;
+    
+}
+h3{
+    font-size: 1.3rem;
+    margin-left: 66px;
+}
+.calendar-container{
+    width: 89%;
+    height: 500px;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    margin-left: 66px;
+    margin-right: 70px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    /* background-color: aquamarine; */
+}
+.reviews-container{
+    width: 89%;
+    height: 500px;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    margin-left: 66px;
+    margin-right: 70px;
+    border-radius: 10px;
+    /* background-color: aquamarine; */
+}

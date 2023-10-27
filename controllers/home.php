@@ -1,9 +1,10 @@
 <?php
 
-    require ("models/providers.php");
+require ("models/users.php");
 
-    $model = new Providers();
+$model = new Users();
 
-    $providers = $model->getAll();
+$users = $model->getAll();
 
-    require ("views/home.php");
+
+require ("views/home.php");
