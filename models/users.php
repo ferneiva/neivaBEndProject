@@ -57,8 +57,8 @@ class Users extends Base
         $api_key= bin2hex(random_bytes(16));
         $query = $this->db->prepare("
 			INSERT INTO users
-			(user_type, name, address, postal_code, city, urban_zone, country, phone, email, password, skills, resume, photo, api_key)
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+			(user_type, name, address, postal_code, city, urban_zone, country, phone, email, password, skills, resume, api_key)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 		");
 		$query->execute([
 			$data["user_type"],
@@ -73,12 +73,21 @@ class Users extends Base
 			password_hash($data["password"], PASSWORD_DEFAULT),
 			$data["skills"],
 			$data["resume"],
-			$data["photo"],
+			// $data["photo"], removed photo from INSERT INTO users
 			$api_key
 		]);
 		$data["user_id"]= $this->db->lastInsertId();
 		$data["api_key"]= $api_key;
 		return $data;
+
+	}
+
+	public function insertImagePath($path){
+		$query =$this->db->prepare("
+		INSERTO INTO users SET photo=?
+		
+		");
+		return $query->execute([$path]);
 
 	}
 	public function delete ($id){

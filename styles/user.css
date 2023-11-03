@@ -28,12 +28,23 @@
     margin-right: 70px;
     border-radius: 10px;
     margin-bottom: 10px;
+    font-size: 1.2rem;
+    box-sizing:border-box;
+    padding: 8px;
+    
     
     
 }
 .user-list{
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     
+}
+.user-list li{
+    width: max-content;
+    height: fit-content;
 }
 h3{
     font-size: 1.3rem;
@@ -56,5 +67,5 @@ h3{
     margin-left: 66px;
     margin-right: 70px;
     border-radius: 10px;
-    /* background-color: aquamarine; */
+    background-color: aquamarine;
 }

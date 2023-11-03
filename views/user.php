@@ -12,7 +12,7 @@
         <!-- <title> <?= $user["name"] ?></title> -->
         <title><?=$users [0] ["name"] ?></title>
     </head>
-    <body>
+<body>
     <?php require ("templates/header.php"); ?>   
     <main>
         <div class="user-header">
@@ -48,21 +48,32 @@
             
         </div>
         <h3><strong>Reviews:</strong></h3>
-        <ul class="reviews-list">
-        <?php
-            echo'
-                
-                <li class="review-bin"><strong>Urban zone:</strong> ' . $reviews["review_text"] . '</li>
-                
-                
-            ';
-                    
-        ?> 
-            
-            
-
-        </ul>  
+        <section class="reviews-container">
+            <ul class="reviews-list">
+                <?php
+                    if(empty($reviewsByUsers)){
+                        echo'
+                        <li>This User does not have reviews</li>
+                        ';
+                    }
+                    else{
+                        foreach($reviewsByUsers as $reviewByUser){
+                            echo'
+                                <li class="user-review-bin">
+                                    <p>'.$ReviewsByUser["userReviewerName"].'</p>
+                                    <p>'.$ReviewsByUser["user_type"].'</p>
+                                    <p>'.$ReviewsByUser["review_text"].'</p>
+                                    <p>'.$ReviewsByUser["rating"].'</p>
+                                    <p>'.$ReviewsByUser["review_date"].'</p>
+                                    
+                                </li>
+                            ';
+                        }
+                    }
+                ?>
+            </ul>
+        </section>
     </main>
-    </body>
+</body>
    
 </html>

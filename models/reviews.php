@@ -25,7 +25,7 @@ class Reviews extends Base
 		
 		return $query->fetchAll();
 	}
-	public function getReviewsByUserReviewd($user_id) {
+	public function getReviewsByUserReviewed($user_id) {
 		
 		$query = $this->db->prepare("
 		SELECT 
@@ -45,7 +45,9 @@ class Reviews extends Base
 		WHERE reviews_users.user_id = ?
 		");
 		
-		$query->execute();
+		$query->execute(
+			$user_id
+		);
 		
 		return $query->fetchAll();
 	}

@@ -18,6 +18,9 @@ body{
     font-family: Helvetica,Arial,sans-serif;
     font-family: helpFont;
 }
+ul{
+    list-style: none;
+}
 a{
     border-radius: 8px;
     text-decoration: none;
@@ -34,4 +37,32 @@ main{
     color: red;
     font-size: 1.7rem;
     font-weight:900;
+}
+.general-button{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.general-button button{
+    width: 200px;
+    height: 35px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: rgba(216, 202, 139, 0.52);
+    border-radius: 10px;
+}
+.link {
+    text-decoration: underline;
+}
+.alert{
+    width: 330px;
+    height: 20px;
+    text-align: center;
+    padding: 8px 0;
+    line-height: 20px;
+    color: white;
+    font-weight: 500;
+    background-color: red;
+    border-radius: 5px;
+    
 }

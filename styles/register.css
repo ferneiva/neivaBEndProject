@@ -42,15 +42,4 @@ option:not(:checked) {
     background-color: rgba(206, 202, 185, 0.52);
     background-color: rgba(188, 188, 30, 0.52);
   }
-.register-button{
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-.register-button button{
-    width: 200px;
-    height: 35px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    background-color: rgba(216, 202, 139, 0.52);
-    border-radius: 10px;
-}
+

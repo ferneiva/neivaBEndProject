@@ -18,7 +18,7 @@
         <div class="register-header-bin">
             <h1>Create account, choose Client or Helper</h1>
             
-            <p class="register">[If registered, <a href="<?= ROOT ?>/login/">log in here]</a></p>
+            <p class="register">[If registered, <a class="link" href="<?= ROOT ?>/login/">log in here]</a></p>
         </div>
     </section>
     <section class="container-form-register">
@@ -136,7 +136,7 @@
                 I agree with terms and conditions
             </label>
             </div>
-            <div class="register-button">
+            <div class="general-button">
                 <button type="submit" name="send">Submit</button>
             </div>
         </form>

@@ -17,4 +17,13 @@ if( empty($user) ) {
     die("Not found");
 }
 
+// require("models/reviews.php");   REVER IVO
+// $id=$user["user_id"];
+// $modelReviews = new Reviews();
+// $reviewsByUsers = $modelReviews->getReviewsByUserReviewed($id);  
+
+
+
+
+
 require("views/user.php");

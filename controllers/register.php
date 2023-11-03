@@ -71,8 +71,11 @@ if( isset($_POST["send"])){
                 $filename = date("YmdHis") . "_". mt_rand(100000, 999999) . "." .$file_extension;
                 move_uploaded_file($_FILES["photo"] ["tmp_name"], "images/helpMysql/" . $filename);
 
-                // header("Location:".ROOT. '/user/' .$_SESSION["User-id"]);
-                header("Location:".ROOT. "/home/"); // <a href="' .ROOT. '/user/' .$user["user_id"] . '">
+                
+                // $photoPath="images/helpMysql/" . '$filename';  REVER IVO
+                // $userPhoto=$model->insertImagePath($photoPath);
+
+                
                 header("Location:" .ROOT. "/user/" .$_SESSION["user_id"]);
             }
             else{
