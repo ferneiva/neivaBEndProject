@@ -10,7 +10,7 @@
                 <?php
                         if( isset($_SESSION["user_id"]) ){
                 ?>
-                        <li><a href="<?= ROOT ?>/logout/">End session</a></li>
+                        <li><a href="<?= ROOT ?>/logout/">Log out</a></li>
                 <?php
                         }
                         else {

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Fernando Neiva">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/home.css">
     <title>HELP</title>
 </head>
@@ -46,13 +48,13 @@
             echo '
                 
                 <li class="user-bin">
-                    <a href="' .ROOT. '/users/' .$user["user_id"] . '">
+                    <a href="' .ROOT. '/user/' .$user["user_id"] . '">
                     ' . $user["name"] . '
                     </a>
                     <div class="user-info">
-                        <h2><strong>User type:</strong> ' .$user["user_type"]. ' </h2>
-                        <h2><strong>Country:</strong>  ' .$user["countryName"]. ' </h2>
-                        <h2><strong>Urban zone:</strong>  ' .$user["urban_zone"]. ' </h2>
+                        <h2><strong>User type: </strong>&nbsp;  ' .$user["user_type"]. ' </h2>
+                        <h2><strong>Country:</strong>&nbsp;   ' .$user["countryName"]. ' </h2>
+                        <h2><strong>Urban zone:</strong>&nbsp;   ' .$user["urban_zone"]. ' </h2>
                     </div>
 
                     

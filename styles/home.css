@@ -1,68 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-@font-face {
-    font-family: helpFont;
-    src: url(/styles/fonts/Helmet-Regular.ttf);
-    src: url(/styles/fonts/RobotoCondensed-Light.ttf);
-    src: url(/styles/fonts/RobotoCondensed-Regular.ttf); 
-    src: url(/styles/fonts/Metropolis-Regular.otf);
-    src: url(/styles/fonts/Metropolis-Thin.otf);
-}
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: Helvetica,Arial,sans-serif;
-    font-family: helpFont;
-   
 
-}
-header{
-    position: fixed;
-    display: flex;
-    justify-content: space-around;
-    width: 100vw;
-    max-width: 100%;
-    top: 0%;
-    height: 80px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    background-color: white;
-}
-.logo{
-    width: 250px;
-    height: 77px;
-    
-}
-.logo-img{
-    margin-top: 5px;
-    width: 70px;
-}
 
-nav{
-    width: 850px;
-    height: 80px;
-}
-.ul-nav{
-    height: 80px;
+
+.search-bar .search-area{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    font-size: 1.1rem;
-    list-style: none;
-    align-items: center;
-    
-       
 }
-
-.ul-nav li a{
-    text-decoration: none;
-    align-items: center;
-    font-weight: 700;
-    color: rgb(4, 34, 69);
-}
-
-main{
-    margin-top: 120px;
+.go{
+    font-size: 1.0rem;
+    margin-bottom: 10px;
 }
 .search{
     width: 100vw;
@@ -77,11 +22,11 @@ main{
     width: 80%;
     height: 120px;
     margin-left: 66px;
-    font-size: 20px;
+    font-size: 1.4rem;
     color: green;
     color: rgb(205, 72, 6);
     color: rgb(4, 34, 69);
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 15px;
     
     
@@ -111,27 +56,18 @@ h1{
     margin-right: 70px;
     border-radius: 10px;
 }
-a:hover{
-    background-color: rgb(160, 160, 74);
+.user-bin a{
+    width: 500px;
 }
+
 .user-info{
     width: 300px;
 }
 h2{
     font-size: 1.1rem;
 }
-.user-bin a{
-    text-decoration: none;
-    width: 440px;
-}
-.search-bar .search-area{
-    display: flex;
-    flex-direction: row;
-}
-.go{
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
+
+
 .text{
     width: 100vw;
     max-width:100%;

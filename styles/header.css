@@ -1,0 +1,46 @@
+header{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    max-width: 100%;
+    top: 0%;
+    height: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: white;
+}
+.logo{
+    width: 250px;
+    height: 77px;
+    
+}
+.logo-img{
+    margin-top: 5px;
+    width: 70px;
+}
+
+nav{
+    width: 850px;
+    height: 80px;
+}
+.ul-nav{
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 1.1rem;
+    list-style: none;
+    align-items: center;
+    font-weight: 700;
+    color: rgb(4, 34, 69);
+}
+.ul-nav a{
+    /* display: block;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    width:auto ( 20% [0,∞]> ) */
+    width: 80px; /*no efect since is inline */
+
+    
+} 
