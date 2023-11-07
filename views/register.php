@@ -25,7 +25,7 @@
 
         <?php
             if(isset($message)){
-                echo '.<p class="warning" role="alert">. ' .$message. ' </p>';
+                echo '<p class="warning" role="alert"> ' .$message. ' </p>';
             }
         ?>
         <form id="help-client-form" method="post" action="<?= ROOT ?>/register/" enctype="multipart/form-data">
@@ -39,11 +39,9 @@
                 <label>
                     User Type; Choose Client or Helper
                     <select name="user_type">
-                        <option value="client">Helper</option>
-                        <option value="helper">Client</option>
-
+                        <option value="client">client</option>
+                        <option value="helper">helper</option>
                     </select>
-                    
                 </label>
             </div>
 
@@ -136,7 +134,7 @@
                 I agree with terms and conditions
             </label>
             </div>
-            <div class="general-button">
+            <div class="large-button">
                 <button type="submit" name="send">Submit</button>
             </div>
         </form>

@@ -17,10 +17,25 @@ if( empty($user) ) {
     die("Not found");
 }
 
-// require("models/reviews.php");   REVER IVO
-// $id=$user["user_id"];
-// $modelReviews = new Reviews();
-// $reviewsByUsers = $modelReviews->getReviewsByUserReviewed($id);  
+require("models/reviews.php");  
+$id=$user["user_id"];
+$modelReviews = new Reviews();
+ 
+
+
+if(isset($_POST["send"])){
+    $review=$_POST;
+    $review["user_session_id"]= $_SESSION["user_id"];
+
+
+    $createReview = $modelReviews->postReviewByReviewer($review);
+    $review["review_id"]=$createReview;
+    $createReviewLink = $modelReviews->reviewLink($review);
+
+    // header("Location:" .ROOT. "/user/" .$id);
+}
+$reviewsByUsers = $modelReviews->getReviewsByUserReviewed($id); 
+
 
 
 

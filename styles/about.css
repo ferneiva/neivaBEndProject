@@ -1,0 +1,21 @@
+.about-container{
+    margin-left: 66px;
+    height: max-content;
+    width: 89%;
+}
+.about-container h2{
+ margin-bottom: 15px;
+}
+.about{
+    width: 89%;
+    height: 170px;
+    /* height: max-content; */
+    background-color: rgba(216, 202, 139, 0.52);
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    margin-bottom:30px;
+    border-radius: 10px;
+}
+.about p{
+    width: 98%;
+    padding: 10px;
+}
