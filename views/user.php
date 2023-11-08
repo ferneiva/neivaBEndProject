@@ -108,8 +108,7 @@
                                     <p>User Type:&nbsp'.$reviewByUser["reviewerType"].'</p>
                                     <p>Review:&nbsp'.$reviewByUser["review_text"].'</p>
                                     <p>Rating:&nbsp'.$reviewByUser["rating"].'</p>
-                                    <p>Review Date:&nbsp'.$reviewByUser["review_date"].'</p>
-                                    
+                                    <p>Review Date:&nbsp'.date("d/m/y", strtotime($reviewByUser["review_date"])).'</p>
                                 </li>
                             ';
                         }

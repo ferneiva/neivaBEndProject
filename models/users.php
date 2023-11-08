@@ -92,6 +92,17 @@ class Users extends Base
 		return $query->execute([$id]);
 	}
 
+	public function searchUsers (){
+		$query =$this->db->prepare("
+		SELECT city, urban_zone
+		FROM users
+		WHERE urban_zone = '%$search%' OR urban_zone = '%$search%'
+		");
+		return $query->execute();
+	}
+
+
+
 
 
 
