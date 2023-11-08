@@ -113,13 +113,13 @@
             <div class="register-bin">
                 <label>
                     Skills (optional)
-                    <textarea type="text" name="skills" minlength="9" maxlength="200">One or several of your abilities </textarea>
+                    <textarea type="text" name="skills" placeholder="One or several of your abilities" minlength="9" maxlength="200"></textarea>
                 </label>
             </div>
             <div class="register-bin">
                 <label>
                     Resumé (optional)
-                    <textarea type="text" name="resume" minlength="9" maxlength="500">Your curriculum</textarea>
+                    <textarea type="text" name="resume" placeholder="Your curriculum" minlength="9" maxlength="500"></textarea>
                 </label>
             </div>
             <div class="register-bin">

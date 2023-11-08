@@ -35,7 +35,7 @@ class Reviews extends Base
 			reviews.review_date,
 			t1.name AS userReviewedName,
 			t1.user_type,
-			reviews_users.user_id AS ReviewedID
+			reviews_users.user_id
 		FROM reviews
 		INNER JOIN reviews_users USING(review_id)
 		INNER JOIN users AS t1
@@ -73,25 +73,8 @@ class Reviews extends Base
 		");
 		$query -> execute([
 			$data["review_id"],
-			$data["user_reviewed_id"],
+			$data["user_session_id"],
 		]);								
 	}
-	public function getAvgRatingsByUser($user_id) {
-		$query = $this->db->prepare("
-		SELECT
-			AVG(rating) AS userAverageRating,
-			reviews_users.user_id as ReviewedUser
-		FROM reviews
-		INNER JOIN reviews_users USING (review_id)
-		WHERE reviews_users.user_id=?
-		
-		");
-		$query -> execute([
-			$user_id
-		]);	
-
-		return $query->fetch();
-	}
-	
 
 }

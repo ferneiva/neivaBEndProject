@@ -26,22 +26,19 @@ $modelReviews = new Reviews();
 if(isset($_POST["send"])){
     $review=$_POST;
     $review["user_session_id"]= $_SESSION["user_id"];
-    
-    
+
 
     $createReview = $modelReviews->postReviewByReviewer($review);
-    $reviewedId=$_POST;
-    $reviewedId["user_reviewed_id"]=$user["user_id"];
-
-    $reviewedId["review_id"]=$createReview;
-    
-    $createReviewLink = $modelReviews->reviewLink($reviewedId);
+    $review["review_id"]=$createReview;
+    $createReviewLink = $modelReviews->reviewLink($review);
 
     // header("Location:" .ROOT. "/user/" .$id);
 }
 $reviewsByUsers = $modelReviews->getReviewsByUserReviewed($id); 
 
-$userAvgReview=$modelReviews->getAvgRatingsByUser($id);
+
+
+
 
 
 require("views/user.php");

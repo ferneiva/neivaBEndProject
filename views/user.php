@@ -29,6 +29,12 @@
                 }
             ?>
                 <h1><?= $user["name"] ?></h1>
+                <div class="user-header-rating">
+                    <h2>Rating:&nbsp;<?=round($userAvgReview["userAverageRating"],1)?>/5</h2>
+                </div>
+                <div class="user-header-type">
+                    <h2>User Type:&nbsp; <?=$user["user_type"]?></h2>
+                </div>
                 
         </div>
             

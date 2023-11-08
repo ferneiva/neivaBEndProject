@@ -42,4 +42,7 @@ option:not(:checked) {
     background-color: rgba(206, 202, 185, 0.52);
     background-color: rgba(188, 188, 30, 0.52);
   }
+.large-button button{
+    margin-left: 86px;
+}
 
