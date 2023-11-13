@@ -32,14 +32,14 @@ function phoneValidation($word){
 
 function photoValidation($word,$format){
     if(empty($word))
-            {return null;}
+            {return true;}
      elseif(   
             $word ["error"] === 0 &&
             $word ["size"] > 0 &&
             $word ["size"] <= 2 * 1024 * 1024 &&
             in_array($word ["type"], $format)
     )
-            {return null;}
+            {return true;}
     else
             {return false;}
 }
@@ -83,7 +83,7 @@ if( isset($_POST["send"])){
             mb_strlen($_POST["city"]) <=50 &&
             in_array($_POST["country"], $country_codes)&&
             phoneValidation($_POST["phone"])==true&&
-            photoValidation($_FILES["photo"],$allowed_formats)==null
+            photoValidation($_FILES["photo"],$allowed_formats)==true
             
             /*$_FILES["photo"]["error"] === 0 &&
             $_FILES["photo"]["size"] > 0 &&

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/general.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/footer.css">
     <title>Log in to your account</title>
 </head>
 <body>
@@ -44,5 +45,6 @@
         </form>
     </div>
 </main>
+<?php require ("templates/footer.php"); ?> 
 </body>
 </html>

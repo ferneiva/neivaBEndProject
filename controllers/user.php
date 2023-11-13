@@ -1,5 +1,5 @@
 <?php
-
+//controllers/users
 
 if( empty($id) || !is_numeric($id) ) {
     http_response_code(400);
@@ -42,6 +42,9 @@ if(isset($_POST["send"])){
 $reviewsByUsers = $modelReviews->getReviewsByUserReviewed($id); 
 
 $userAvgReview=$modelReviews->getAvgRatingsByUser($id);
+
+
+
 
 
 require("views/user.php");

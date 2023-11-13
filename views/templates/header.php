@@ -5,11 +5,12 @@
         <nav>
             <ul class="ul-nav">
                 <li><a href="<?= ROOT ?>/">Home</a></li>
-                <li><a href="<?= ROOT ?>/about/">About Us</a></li>
+                <li><a href="<?= ROOT ?>/info/">Info</a></li>
                 
                 <?php
                         if( isset($_SESSION["user_id"]) ){
                 ?>
+                        <li><a href="<?= ROOT ?>/useraccount/">User account</a></li>
                         <li><a href="<?= ROOT ?>/logout/">Log out</a></li>
                 <?php
                         }

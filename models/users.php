@@ -1,5 +1,5 @@
 <?php
-
+// models/users
 require_once("base.php");
 
 class Users extends Base
@@ -14,6 +14,9 @@ class Users extends Base
 				users
 			INNER JOIN countries
 			ON countries.code = users.country
+			ORDER BY users.user_id DESC
+			LIMIT 100
+			
 		
 		
 			
@@ -92,14 +95,19 @@ class Users extends Base
 		return $query->execute([$id]);
 	}
 
-	public function searchUsers (){
+	public function searchUsers ($search){
 		$query =$this->db->prepare("
-		SELECT city, urban_zone
+		SELECT user_id, name, user_type, city, urban_zone
 		FROM users
-		WHERE urban_zone = '%$search%' OR urban_zone = '%$search%'
+		WHERE urban_zone LIKE ? OR city LIKE ?
 		");
-		return $query->execute();
+		$query->execute([
+			"%".$search."%",
+			"%".$search."%"
+		]);
+		return $query->fetchAll();
 	}
+
 
 
 

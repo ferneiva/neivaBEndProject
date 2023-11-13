@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/styles/general.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/user.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <script src="/script/user.js" defer></script>
 
         <title><?=$user ["name"] ?></title>
     </head>
@@ -58,6 +60,7 @@
                     
                     ?> 
                 </ul>
+                
         </div>
         <div class="calendar-title">
             <h2>Calendar of available hours:</h2>
@@ -103,12 +106,24 @@
                     else{
                         foreach($reviewsByUsers as $reviewByUser){
                             echo'
-                                <li class="user-review-bin">
+                                <li class="user-review-bin" data-review_id="'.$reviewByUser["review_id"].'">
+                                    
                                     <p>Name:&nbsp'.$reviewByUser["userReviewerName"].'</p>
                                     <p>User Type:&nbsp'.$reviewByUser["reviewerType"].'</p>
-                                    <p>Review:&nbsp'.$reviewByUser["review_text"].'</p>
-                                    <p>Rating:&nbsp'.$reviewByUser["rating"].'</p>
                                     <p>Review Date:&nbsp'.date("d/m/y", strtotime($reviewByUser["review_date"])).'</p>
+                                    <p>Rating:&nbsp'.$reviewByUser["rating"].'</p>
+                                    <p>Review:&nbsp'.$reviewByUser["review_text"].'</p>
+                                    <div class="review-delete">
+                                        <button class="user-delete-btn" type="button"
+                                        
+                                        name="deleteReview">Delete review </button>
+                                        <!--
+                                        <button class="user-delete-btn" type="button"
+                                        data-review_id="'.$reviewByUser["review_id"].'"
+                                        name="deleteReview">Delete review </button>
+                                        -->
+                                    </div>
+                                    
                                 </li>
                             ';
                         }
@@ -117,6 +132,7 @@
             </ul>
         </section>
     </main>
+    <?php require ("templates/footer.php"); ?> 
 </body>
    
 </html>

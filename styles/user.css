@@ -122,11 +122,29 @@
     margin-left: 66px;
     /* background-color: aquamarine; */
 }
+.reviews-list{
+    font-weight: 600;
+    margin-bottom: 80px;
+}
 .user-review-bin{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 60px;
     height: max-content;
     margin-bottom: 8px;
     padding: 8px;
     border-radius: 10px;
     background-color: rgba(216, 202, 139, 0.52);
     border: 1.5px solid rgba(0, 0, 0, 0.15);
+
 }
+
+.review-delete .user-delete-btn{
+    width: max-content;
+    height: max-content;
+    font-weight: 700;
+    padding: 5px;
+}
+
+

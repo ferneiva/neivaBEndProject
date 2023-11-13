@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/general.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="/styles/footer.css">
     <title>HELP</title>
 </head>
 
@@ -54,7 +55,7 @@
             <div class="register-bin">
                 <label>
                     Password
-                    <input type="password" name="password_confirm" required minlenght="8" maxlength="1000">
+                    <input type="password" placeholder="Minimum 8 characters"name="password_confirm" required minlenght="8" maxlength="1000">
                 <label>
             </div>
             <div class="register-bin">
@@ -140,6 +141,7 @@
         </form>
     </section>
 </main>
+<?php require ("templates/footer.php"); ?> 
 </body>
 
 </html>

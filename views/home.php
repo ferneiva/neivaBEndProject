@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/styles/general.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+
     <title>HELP</title>
 </head>
 <body>
@@ -15,16 +17,16 @@
     <main>
     <section class="search">
         <div class="search-bar">
-            <form method="post" action="<?= ROOT ?>/admin/products">
+            <form method="get" action="<?= ROOT ?>/search/">
                     <div class="search-area">
                         <div>
                             <label>
                                 Search
-                                <input type="text" name="name">
+                                <input type="text" name="search">
                             </label>
                         </div>
                         <div>
-                            <button class="go" type="submit" name="search">GO</button>
+                            <button class="go" type="submit" name="submit">GO</button>
                         </div>
 
                     </div>
@@ -52,9 +54,9 @@
                     ' . $user["name"] . '
                     </a>
                     <div class="user-info">
-                        <h2><strong>User type: </strong>&nbsp;  ' .$user["user_type"]. ' </h2>
-                        <h2><strong>Country:</strong>&nbsp;   ' .$user["countryName"]. ' </h2>
-                        <h2><strong>Urban zone:</strong>&nbsp;   ' .$user["urban_zone"]. ' </h2>
+                        <h2>User type:&nbsp;  ' .$user["user_type"]. ' </h2>
+                        <h2>Country:&nbsp;   ' .$user["countryName"]. ' </h2>
+                        <h2>Urban zone:&nbsp;   ' .$user["urban_zone"]. ' </h2>
                     </div>
 
                     
@@ -67,7 +69,7 @@
         <div class="text">
 
         </div>
-        
-    </main>    
+    </main>
+    <?php require ("templates/footer.php"); ?>    
 </body>
 </html>

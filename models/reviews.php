@@ -92,6 +92,13 @@ class Reviews extends Base
 
 		return $query->fetch();
 	}
+	public function deleteReview ($id){
+        $query =$this->db->prepare("
+        DELETE FROM reviews
+        WHERE review_id = ?
+        ");
+        return $query->execute([$id]);
+    }
 	
 
 }

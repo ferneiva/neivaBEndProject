@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/general.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/about.css">
+    <link rel="stylesheet" href="/styles/footer.css">
     <title>About Us</title>
 </head>
 <body>
@@ -40,5 +41,6 @@
 
         </section>
     </main>
+    <?php require ("templates/footer.php"); ?>  
 </body>
 </html>
