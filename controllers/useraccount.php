@@ -1,6 +1,19 @@
 <?php
-// controlers/register.php
-//header("Content-Type: application/json");
+// if( empty($id) || !is_numeric($id) ) {
+//     http_response_code(400);
+//     die("Invalid reqquest");
+// }
+require("models/users.php");
+
+$model = new Users();
+
+$user = $model->getDetail($_SESSION["user_id"]);
+
+if( empty($user) ) {
+    http_response_code(404);
+    die("Not found");
+}
+
 require("models/countries.php");
 $modelCountries = new Countries();
 
@@ -14,13 +27,6 @@ $allowed_formats=[
     "jpg"=>"image/jpeg"
     ];
 
-
-// function phoneValidation($word){
-//     if(!empty($word) && mb_strlen($word) >=9 && mb_strlen($word) <=30 )
-//         {return true;}
-//     else
-//         {return false;}
-// }
 function phoneValidation($word){
     if(empty($word))
         {return true;}
@@ -30,14 +36,14 @@ function phoneValidation($word){
         {return false;}
 }
 
-function photoValidation($file,$format){
-    if(empty($file["size"]))
+function photoValidation($word,$format){
+    if(empty($word))
             {return true;}
-     elseif(   
-            $file ["error"] === 0 &&
-            $file ["size"] > 0 &&
-            $file ["size"] <= 2 * 1024 * 1024 &&
-            in_array($file ["type"], $format)
+        elseif(   
+            $word ["error"] === 0 &&
+            $word ["size"] > 0 &&
+            $word ["size"] <= 2 * 1024 * 1024 &&
+            in_array($word ["type"], $format)
     )
             {return true;}
     else
@@ -52,10 +58,7 @@ function userTypeValidation($word){
 
 
 if( isset($_POST["send"])){
-        var_dump($_FILES);
-        var_dump($_FILES["photo"],$allowed_formats);
-        $testFoto=photoValidation($_FILES["photo"],$allowed_formats);
-        var_dump($testFoto);
+    var_dump($_FILES);
         foreach($_POST as $key => $value){
             $_POST [$key] = htmlspecialchars(strip_tags(trim($value)));
         }
@@ -94,7 +97,6 @@ if( isset($_POST["send"])){
             in_array( $_FILES["photo"]["type"], $allowed_formats)*/
     
         ){
-            
             require("models/users.php");
             $model = new Users();
             $user =$model->getByEmail($_POST["email"]);
@@ -122,7 +124,9 @@ if( isset($_POST["send"])){
             }
         }
         else{
-            $message = "Fields incorrect or wrong image ";
+            $message = "Fill the fields correctly";
         }
 }
-require("views/register.php");
+
+
+require ("views/useraccount.php");

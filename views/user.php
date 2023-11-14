@@ -113,19 +113,23 @@
                                     <p>Review Date:&nbsp'.date("d/m/y", strtotime($reviewByUser["review_date"])).'</p>
                                     <p>Rating:&nbsp'.$reviewByUser["rating"].'</p>
                                     <p>Review:&nbsp'.$reviewByUser["review_text"].'</p>
-                                    <div class="review-delete">
-                                        <button class="user-delete-btn" type="button"
-                                        
-                                        name="deleteReview">Delete review </button>
-                                        <!--
-                                        <button class="user-delete-btn" type="button"
-                                        data-review_id="'.$reviewByUser["review_id"].'"
-                                        name="deleteReview">Delete review </button>
-                                        -->
-                                    </div>
                                     
-                                </li>
                             ';
+                                    if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]==$reviewByUser["reviewerID"]){
+                                        echo'
+                                            <div class="review-delete">
+                                            <button class="user-delete-btn" type="button"
+                                                
+                                                name="deleteReview" aria-label="delete-review">Delete review </button>
+                                                <!--
+                                                <button class="user-delete-btn" type="button"
+                                                data-review_id="'.$reviewByUser["review_id"].'"
+                                                name="deleteReview">Delete review </button>
+                                                -->
+                                            </div>
+                                </li>
+                                        ';
+                                }
                         }
                     }
                 ?>

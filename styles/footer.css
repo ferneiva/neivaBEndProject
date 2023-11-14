@@ -1,0 +1,100 @@
+footer{
+    border-top: 2px solid rgba(0, 0, 0, 0.5);
+    width:100%;
+    height:210px;
+    background-color: rgba(209, 203, 177, 0.18); 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.footer-left{
+    width: 5%;
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+.footer-center{
+    width: 90%;
+    height: max-content;
+    /* background-color: blueviolet; */
+}
+.footer-right{
+    width: 5%;
+    height: 210px;
+    /* background-color: red; */
+}
+.footer-header{
+    width: 100%;
+    height: 90px;
+    margin-top: 52px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+
+}
+.footer-header-container{
+    
+    width:95%;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-header-container .logo{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+}
+
+.footer-bottom{
+    width: 100%;
+    height: 90px;
+    margin-top: 15px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+
+}
+.footer-bottom-container{
+    width: 80%;
+    height:70px;
+    gap: 8%;
+    display: flex;
+    justify-content: center;
+    
+    margin-bottom: 20px;
+}
+.address{
+    margin-top: 4px;
+    font-weight: 300;
+    width: max-content;
+}
+.footer-mail{
+    display: flex;
+    justify-content: center;
+    gap:6px;
+    width: max-content;
+    align-items: center;
+}
+.footer-mail p{
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+.footer-mail textarea{
+    padding-top: 0;
+    line-height: 4px;
+}
+.footer-mail .go{
+    margin-top: 3px;
+    font-size: 1.1rem;
+}
+
+.icons-footer{
+    margin-top: 8px;
+    width: 30%;
+}
+.icons-footer{
+    display: flex;
+    gap: 15px;
+}
+.soc-icons{
+    width: 22px;
+}

@@ -1,0 +1,21 @@
+.useraccount-header-container{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.useraccount-header{
+    margin-left:66px;
+    width: 90%;
+    height: 98px;
+    
+}
+.useraccount-header h2{
+    margin-bottom: 6px;
+}
+.useraccount-header p{
+    background-color: rgba(188, 186, 129, 0.323);
+    width: max-content;
+    height: max-content;
+    padding: 4px;
+    border-radius: 8px;
+
+
+}

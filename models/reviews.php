@@ -92,12 +92,17 @@ class Reviews extends Base
 
 		return $query->fetch();
 	}
-	public function deleteReview ($id){
+	public function deleteReview ($id, $user_id){
         $query =$this->db->prepare("
         DELETE FROM reviews
         WHERE review_id = ?
+		AND user_id = ?
         ");
-        return $query->execute([$id]);
+        return $query->execute([
+			$id,
+			$user_id
+
+		]);
     }
 	
 
