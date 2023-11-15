@@ -109,8 +109,8 @@ if( isset($_POST["send"])){
                 else{$post=$_POST;
                     $post["filename"]= $filename;}
                 
-                var_dump($filename);
-                var_dump($_POST);
+                // var_dump($filename);
+                // var_dump($_POST);
 
                 $createdUser = $model->create($post);
                 $_SESSION["user_id"] = $createdUser["user_id"];

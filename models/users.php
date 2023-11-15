@@ -18,7 +18,6 @@ class Users extends Base
 			LIMIT 100
 			
 		
-		
 			
 		");
 		
@@ -85,6 +84,42 @@ class Users extends Base
 		return $data;
 
 	}
+
+	public function update($data){
+        $query = $this->db->prepare("
+			UPDATE users
+			SET
+				name=?,
+				address=?,
+				postal_code=?,
+				city=?,
+				urban_zone=?,
+				country=?,
+				phone=?,
+				email=?,
+				skills=?,
+				resume=?,
+				photo=?
+			WHERE user_id = ?
+		");
+		$query->execute([
+			$data["name"],
+			$data["address"],
+			$data["postal_code"],
+			$data["city"],
+			$data["urban_zone"],
+			$data["country"],
+			$data["phone"],
+			$data["email"],
+			$data["skills"],
+			$data["resume"],
+			$data["filename"],
+			$data["id"],
+			
+		]);
+		return $query->fetch();
+	}
+
 
 	
 	public function delete ($id){

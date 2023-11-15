@@ -16,7 +16,7 @@
 <body>
     <?php require ("templates/header.php"); ?>   
     <main>
-        <div class="user-header">
+    <div class="user-header">
             <?php
                 if(empty($user["photo"]))
                 {
@@ -70,30 +70,37 @@
         </div>
         <div class="reviews-title">
             <h2>Reviews:</h2>
-            <div class="review-write">
-                <form  method="POST" action="<?= ROOT ?>/user/<?=$user["user_id"]?>">
-                    <div>
-                        <label>
-                            Rate this <?= $user["user_type"] ?>
-                            <select name="rating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="2">3</option>
-                                <option value="2">4</option>
-                                <option value="2">5</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div>
-                        
-                        <textarea name="reviewContent" placeholder="Your review" rows="1" cols="40" minlength="8" maxlength="65535"></textarea>
-                        
-                    </div>
-                    <div>
-                        <button  type="submit" name="send">Post</button>
-                    </div>
-                </form> 
-            </div>
+            <?php
+            if(isset($_SESSION["user_id"])){
+            ?>
+                <div class="review-write">
+                    <form  method="POST" action="<?= ROOT ?>/user/<?=$user["user_id"]?>">
+                        <div>
+                            <label>
+                                Rate this <?= $user["user_type"] ?>
+                                <select name="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="2">3</option>
+                                    <option value="2">4</option>
+                                    <option value="2">5</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            
+                            <textarea name="reviewContent" placeholder="Your review" aria-label="review-content"
+                            rows="1" cols="40" minlength="8" maxlength="65535"></textarea>
+                            
+                        </div>
+                        <div>
+                            <button  type="submit" name="send">Post</button>
+                        </div>
+                    </form> 
+                </div>
+            <?php
+            }
+            ?>
         </div>
         <section class="reviews-container">
             <ul class="reviews-list">

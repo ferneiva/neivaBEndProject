@@ -1,8 +1,10 @@
 <?php
+// controllers/useraccount
 // if( empty($id) || !is_numeric($id) ) {
 //     http_response_code(400);
 //     die("Invalid reqquest");
 // }
+
 require("models/users.php");
 
 $model = new Users();
@@ -36,51 +38,43 @@ function phoneValidation($word){
         {return false;}
 }
 
-function photoValidation($word,$format){
-    if(empty($word))
+function photoValidation($file,$format){
+    if(empty($file["size"]))
             {return true;}
         elseif(   
-            $word ["error"] === 0 &&
-            $word ["size"] > 0 &&
-            $word ["size"] <= 2 * 1024 * 1024 &&
-            in_array($word ["type"], $format)
+            $file ["error"] === 0 &&
+            $file ["size"] > 0 &&
+            $file ["size"] <= 2 * 1024 * 1024 &&
+            in_array($file ["type"], $format)
     )
             {return true;}
     else
             {return false;}
 }
-function userTypeValidation($word){
-    if($word="client" or $word="user")
-        {return true;}
-    else
-        {return false;}
-}
 
 
-if( isset($_POST["send"])){
-    var_dump($_FILES);
+if( isset($_POST["change"])){
+    // var_dump($_FILES);
+        // var_dump($_FILES["photo"],$allowed_formats);
+        //$testFoto=photoValidation($_FILES["photo"],$allowed_formats);
+        //var_dump($testFoto);
+        
+
         foreach($_POST as $key => $value){
             $_POST [$key] = htmlspecialchars(strip_tags(trim($value)));
         }
         
         if(
-            !empty($_POST["user_type"]) &&
-            userTypeValidation($_POST["user_type"])== true &&
-            !empty($_POST["agrees"]) &&
             !empty($_POST["name"]) &&
             !empty($_POST["email"]) &&
-            !empty($_POST["password"]) &&
             !empty($_POST["address"]) &&
             !empty($_POST["city"]) &&
             !empty($_POST["postal_code"]) &&
             !empty($_POST["country"]) &&
             in_array($_POST["country"], $country_codes )&&
             filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
-            $_POST["password"] === $_POST["password_confirm"] &&
             mb_strlen($_POST["name"])  >=3 &&
             mb_strlen($_POST["name"]) <=60 &&
-            mb_strlen($_POST["password"])  >=8 &&
-            mb_strlen($_POST["password"]) <=1000 &&
             mb_strlen($_POST["address"]) >=8 &&
             mb_strlen($_POST["address"]) <=120 &&
             mb_strlen($_POST["postal_code"]) >=4 &&
@@ -90,41 +84,43 @@ if( isset($_POST["send"])){
             in_array($_POST["country"], $country_codes)&&
             phoneValidation($_POST["phone"])==true&&
             photoValidation($_FILES["photo"],$allowed_formats)==true
-            
-            /*$_FILES["photo"]["error"] === 0 &&
-            $_FILES["photo"]["size"] > 0 &&
-            $_FILES["photo"]["size"] <= 2 * 1024 * 1024 &&
-            in_array( $_FILES["photo"]["type"], $allowed_formats)*/
     
         ){
-            require("models/users.php");
-            $model = new Users();
-            $user =$model->getByEmail($_POST["email"]);
-            if(empty($user)){
-                $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
-                $filename = date("YmdHis") . "_". mt_rand(100000, 999999) . "." .$file_extension;
-                move_uploaded_file($_FILES["photo"] ["tmp_name"], "images/helpMysql/" . $filename);
-                if(empty($_FILES["photo"]["size"])){
-                    $post=$_POST;
-                    
-                }
-                else{$post=$_POST;
-                    $post["filename"]= $filename;}
-                
-                var_dump($filename);
-                var_dump($_POST);
+            // require("models/users.php");
+            $modelUpdate = new Users();
+            $idUpdated=$_SESSION["user_id"];
+            //$idUpdated=$user(["user_id"]);
+            var_dump($idUpdated);
+            $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
+            $filename = date("YmdHis") . "_". mt_rand(100000, 999999) . "." .$file_extension;
+            move_uploaded_file($_FILES["photo"] ["tmp_name"], "images/helpMysql/" . $filename);
 
-                $createdUser = $model->create($post);
-                $_SESSION["user_id"] = $createdUser["user_id"];
+            if(empty($_FILES["photo"]["size"])){
+                $post=$_POST;
+                $post["id"]=$idUpdated;
                 
-                header("Location:" .ROOT. "/user/" .$_SESSION["user_id"]);
             }
             else{
-                $message = "User already exists";
+                $post=$_POST;
+                $post["filename"]= $filename;
+                $post["id"]=$idUpdated;
             }
+            
+            // var_dump($filename);
+            var_dump($post);
+            // $id=$_SESSION(["user_id"]);
+
+            $modelUpdate->update($post);
+            
+            
+            header("Location:" .ROOT. "/user/" .$_SESSION["user_id"]);
+            
+            
         }
         else{
-            $message = "Fill the fields correctly";
+            var_dump($_FILES);
+            var_dump($_POST);
+            $message = "Fields incorrect or wrong image";
         }
 }
 

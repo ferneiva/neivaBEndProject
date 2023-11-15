@@ -44,7 +44,7 @@ $reviewsByUsers = $modelReviews->getReviewsByUserReviewed($id);
 $userAvgReview=$modelReviews->getAvgRatingsByUser($id);
 
 
-
+// var_dump($_SESSION["user_id"]);
 
 
 require("views/user.php");

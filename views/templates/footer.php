@@ -12,14 +12,14 @@
                     </ul>
                 </nav>
                 <div class="logo">
-                    <img class="logo-img" src="/images/logo help 1.png" alt="HELP Logo" title="Logo">
+                <a href="<?= ROOT ?>/"><img class="logo-img" src="/images/logo help 1.png" alt="HELP Logo" title="Logo"></a>
                 </div>
             </div>
         </section>
         <section class="footer-bottom">
             <div class="footer-bottom-container">
                 <div class="address">
-                    <p>Instreet 118 2561 Fintown</p>
+                    <p>Helpstreet 118 2561 Helptown</p>
                     <p>Help@help.com +1 7993 2905</p>
                 </div>
                 <div class="social-contact">
@@ -30,7 +30,7 @@
                             </div>
                             <div>
                                 <label>
-                                    <textarea type="text" rows="2" placeholder="Your message" minlength="3" maxlength="200" name="contactUs"></textarea>
+                                    <textarea type="text" rows="2" placeholder="" aria-label="contact-us" minlength="3" maxlength="200" name="contactUs"></textarea>
                                 </label>
                             </div>
                             <div>

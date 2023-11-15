@@ -1,21 +1,28 @@
-.useraccount-header-container{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
 .useraccount-header{
-    margin-left:66px;
-    width: 90%;
-    height: 98px;
-    
+    height: max-content;
+    width: max-content;
 }
-.useraccount-header h2{
+.useraccount-header-1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background-color: rgba(214, 202, 151, 0.52);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 4px;
+    border-radius: 10px;
+    text-align: center;
+}
+.useraccount-header-2{
+    font-size: 1.0rem;
+    font-weight: 600;
     margin-bottom: 6px;
 }
-.useraccount-header p{
-    background-color: rgba(188, 186, 129, 0.323);
-    width: max-content;
-    height: max-content;
-    padding: 4px;
-    border-radius: 8px;
-
-
+.useraccount-input-photo{
+    width: 170px;
+    background-color: rgba(214, 202, 151, 0.52);
+    border-radius: 7px;
+    padding:2px;
+}
+.useraccount-right-label{
+    font-size: 1.1rem ;
 }

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/styles/general.css">
     <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/user.css">
     <link rel="stylesheet" href="/styles/register.css">
     <link rel="stylesheet" href="/styles/footer.css">
     <link rel="stylesheet" href="/styles/useraccount.css">
@@ -17,13 +18,28 @@
 <body>
     <?php require ("templates/header.php"); ?>   
 <main>
-    <section class="useraccount-header-container">
-        <div class="useraccount-header">
-            <h1>Hello <?= $user ["name"]?></h1>
-            <h2>Your account information</h2>
-            <p>Change any personnal information below and submit</p>
-        </div>
-    </section>
+    <div class="user-header">
+            <?php
+                if(empty($user["photo"]))
+                {
+            ?>
+                <img class="user-img" src="/images/nouserphoto.png" alt="user photo">    
+            <?php
+                }
+                else{
+            ?>
+                <img class="user-img" src="/images/helpMysql/<?=$user["photo"]?>" alt="user photo">
+            <?php
+                }
+            ?>
+                <h1><?= $user["name"] ?></h1>
+                <div class="useraccount-header">
+                    <h2 class="useraccount-header-1">My account</h2>
+                    <h2 class="useraccount-header-2">[Change any personnal information below and submit]</h2>
+                </div>
+                
+    </div>
+       
     
     <section class="container-form-register">
 
@@ -36,47 +52,25 @@
             <div class="register-bin">
                 <label>
                     Name
-                    <input type="text" name="name" required minlength="3" maxlength="60">
+                    <input type="text" name="name" value="<?= $user["name"]?>" required minlength="3" maxlength="60">
                 </label>
             </div>
-            <div class="register-bin">
-                <label>
-                    User Type; Choose Client or Helper
-                    <select name="user_type">
-                        <option value="client">client</option>
-                        <option value="helper">helper</option>
-                    </select>
-                </label>
-            </div>
-
             <div class="register-bin">
                 <label>
                     Email
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" value="<?= $user["email"]?>"required>
                 <label>
             </div>
-            <div class="register-bin">
-                <label>
-                    Password
-                    <input type="password" placeholder="Minimum 8 characters"name="password_confirm" required minlenght="8" maxlength="1000">
-                <label>
-            </div>
-            <div class="register-bin">
-                <label>
-                    Repeat Password
-                    <input type="password" name="password" required minlenght="8" maxlength="1000">
-                <label>
-            </div>
-            <div class="register-bin">
+                <div class="register-bin">
                 <label>
                     Address
-                    <input type="text" name="address" required minlength="8" maxlength="120">
+                    <input type="text" name="address" value="<?= $user["address"]?>" required minlength="8" maxlength="120">
                 </label>
             </div >
             <div class="register-bin">
                 <label>
                     Postal code
-                    <input type="text" name="postal_code" required minlength="4" maxlength="20">
+                    <input type="text" name="postal_code" value="<?= $user["postal_code"]?>" required minlength="4" maxlength="20">
                 </label>
             </div>
             <div class="register-bin">
@@ -85,7 +79,8 @@
                     <select name="country">
         <?php
         foreach($countries as $country){
-        $selected= $country["code"]==="PT" ? " selected" : "";
+
+        $selected= $country["code"]===$user["country"] ? " selected" : "";
         echo'
             <option value="' .$country["code"]. '" ' .$selected. '>' .$country["name"]. '</option>
                 
@@ -99,41 +94,42 @@
             <div class="register-bin">
                 <label>
                     City
-                    <input type="text" name="city" required minlength="3" maxlength="50">
+                    <input type="text" name="city" value="<?= $user["city"]?>" required minlength="3" maxlength="50">
                 </label>
             </div>
             <div class="register-bin">
                 <label>
                     Urban Zone (if none repeat city)
-                    <input type="text" name="urban_zone" required minlength="3" maxlength="50">
+                    <input type="text" name="urban_zone"value="<?= $user["urban_zone"]?>" required minlength="3" maxlength="50">
                 </label>
             </div>
             <div class="register-bin">
                 <label>
                     Phone (optional)
-                    <input type="text" name="phone" minlength="9" maxlength="30">
+                    <input type="text" name="phone" value="<?= $user["phone"]?>" minlength="9" maxlength="30">
                 </label>
             </div>
             <div class="register-bin">
                 <label>
                     Skills (optional)
-                    <textarea type="text" name="skills" placeholder="One or several of your abilities" minlength="9" maxlength="200"></textarea>
+                    <textarea type="text" name="skills" value="<?= $user["skills"]?>" placeholder="Your skills" minlength="9" maxlength="200"></textarea>
                 </label>
             </div>
             <div class="register-bin">
                 <label>
                     Resumé (optional)
-                    <textarea type="text" name="resume" placeholder="Your curriculum" minlength="9" maxlength="500"></textarea>
+                    <textarea type="text" name="resume" value="<?= $user["resume"]?>" placeholder="Your curriculum" minlength="9" maxlength="500"></textarea>
                 </label>
             </div>
             <div class="register-bin">
                 <label>
                     Photo (optional)
-                    <input type="file" name="photo" accept="<?= implode(",", $allowed_formats) ?>">
+                    <input class="useraccount-input-photo" type="file" name="photo" accept="<?= implode(",", $allowed_formats) ?>">
+                    <span class="useraccount-right-label"> (Max size 2MB)</span>
                 </label>
             </div>
             <div class="large-button">
-                <button type="submit" name="send">Submit</button>
+                <button type="submit" name="change">Change</button>
             </div>
         </form>
     </section>

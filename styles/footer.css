@@ -1,7 +1,7 @@
 footer{
     border-top: 2px solid rgba(0, 0, 0, 0.5);
     width:100%;
-    height:210px;
+    height:310px;
     background-color: rgba(209, 203, 177, 0.18); 
     display: flex;
     flex-direction: row;
@@ -9,17 +9,17 @@ footer{
 }
 .footer-left{
     width: 5%;
-    height: 100%;
+    height: 310px;
     /* background-color: aquamarine; */
 }
 .footer-center{
     width: 90%;
-    height: max-content;
+    height: 310px;
     /* background-color: blueviolet; */
 }
 .footer-right{
     width: 5%;
-    height: 210px;
+    height: 310px;
     /* background-color: red; */
 }
 .footer-header{
@@ -48,7 +48,7 @@ footer{
     width: 100%;
     height: 90px;
     margin-top: 15px;
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
     display: flex;
     justify-content: center;
 
@@ -83,7 +83,7 @@ footer{
     line-height: 4px;
 }
 .footer-mail .go{
-    margin-top: 3px;
+    margin-top: 6px;
     font-size: 1.1rem;
 }
 
