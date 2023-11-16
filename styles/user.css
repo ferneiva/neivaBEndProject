@@ -34,6 +34,26 @@
     border-radius: 10px;
     padding:8px;
 }
+.sent-mail{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    background-color: rgba(214, 202, 151, 0.52);
+    padding: 8px;
+    border-radius: 6px;
+}
+.mail-btn .go{
+    font-size: 1.1rem;
+    padding: 4px;
+    border: 1px solid black;
+}
+.mail-note h3{
+    font-size: 0.9rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
 
 .user-info{
     width: 89%;

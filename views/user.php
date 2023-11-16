@@ -39,7 +39,28 @@
                 </div>
                 
         </div>
-            
+        <?php
+            if(isset($_SESSION["user_id"])){
+        ?>
+                <div class="user-header">
+                    <form id="user-send-mail" method="post" action="<?= ROOT ?>/user/">    
+                        <div class=sent-mail>
+                            <div class="mail-title">
+
+                                <h2>Notify user You want to book services</h2>
+                            </div>
+                            <div class="mail-btn">
+                                <button class="go" type="submit" name="submit">Contact</button>
+                            </div>
+                        </div>
+                        <div class="mail-note">
+                                <h3>[You will receive an email with all User contacts]</h3>
+                        </div>
+                    </form>        
+                </div>
+            <?php
+            }
+            ?>
         <div class="user-info">
                 <ul class="user-list">
                     <?php

@@ -27,7 +27,7 @@
                 ' . $userSearch["name"] . '
                 </a>
                 <div class="user-info">
-                    <h2><strong>User type: </strong>&nbsp;  ' .$userSearch["name"]. ' </h2>
+                    
                     <h2><strong>User type: </strong>&nbsp;  ' .$userSearch["user_type"]. ' </h2>
                     <h2><strong>City:</strong>&nbsp;   ' .$userSearch["city"]. ' </h2>
                     <h2><strong>Urban zone:</strong>&nbsp;   ' .$userSearch["urban_zone"]. ' </h2>
