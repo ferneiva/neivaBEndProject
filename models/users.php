@@ -134,9 +134,10 @@ class Users extends Base
 		$query =$this->db->prepare("
 		SELECT user_id, name, user_type, city, urban_zone
 		FROM users
-		WHERE urban_zone LIKE ? OR city LIKE ?
+		WHERE urban_zone LIKE ? OR city LIKE ? OR name LIKE ?
 		");
 		$query->execute([
+			"%".$search."%",
 			"%".$search."%",
 			"%".$search."%"
 		]);
