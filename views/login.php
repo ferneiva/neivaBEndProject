@@ -39,7 +39,7 @@
 
                 <label>
             </div>
-            <div class="general-button">
+            <div class="general-button login-btn">
                 <button type="submit" name="send">Login</button>
             </div>
         </form>

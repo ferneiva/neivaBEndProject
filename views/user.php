@@ -46,15 +46,32 @@
                     <form id="user-send-mail" method="post" action="<?= ROOT ?>/user/">    
                         <div class=sent-mail>
                             <div class="mail-title">
-
                                 <h2>Notify user You want to book services</h2>
                             </div>
+                            <div class="hidden-mail-inputs">
+                                <?php
+                                // print_r($sessionUser["name"]);
+                                $subject="Help mail from User " .$sessionUser["name"] .  " that wants to book a service";
+                                $mailStandardMessage="Please contact User name; " .$sessionUser["name"] .
+                                ",email; " .$sessionUser["email"].  "phone nr; " .$sessionUser["phone"] . "that is interested on your available slots";
+                                $destinationMail=$user["email"];
+                                ?>
+                                
+                                
+
+
+
+                                
+                                <input type="hidden" name="message" value="<?=$mailStandardMessage?>">
+                                <input type="hidden" name="destination_email" value="<?=$destinationMail?>">
+
+                            </div>
                             <div class="mail-btn">
-                                <button class="go" type="submit" name="submit">Contact</button>
+                                <button class="go" type="submit" name="emailSend">Contact</button>
                             </div>
                         </div>
                         <div class="mail-note">
-                                <h3>[You will receive an email with all User contacts]</h3>
+                                <h3>[User will receive an email with your interest and contacts]</h3>
                         </div>
                     </form>        
                 </div>
@@ -70,9 +87,9 @@
                             
                             <li><strong>City:</strong>&nbsp; ' . $user["city"] . '</li>
                             
-                            <li><strong>Email:</strong>&nbsp; ' . $user["email"] . '</li>
+                            <!-- <li><strong>Email:</strong>&nbsp; ' . $user["email"] . '</li>
                             
-                            <li><strong>Phone:</strong>&nbsp; ' . $user["phone"] . '</li>
+                            <li><strong>Phone:</strong>&nbsp; ' . $user["phone"] . '</li>-->
                             
                             <li><strong>Skills:</strong>&nbsp; ' . $user["skills"] . '</li>
                             
@@ -84,10 +101,10 @@
                 
         </div>
         <div class="calendar-title">
-            <h2>Calendar of available hours:</h2>
+            <h2>Available hours:</h2>
         </div>
         <div class="calendar-container">
-            
+            <img class="agenda-img" src="/images/agendahelp1.png" alt="agenda photo">    
         </div>
         <div class="reviews-title">
             <h2>Reviews:</h2>

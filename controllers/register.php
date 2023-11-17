@@ -52,10 +52,10 @@ function userTypeValidation($word){
 
 
 if( isset($_POST["send"])){
-        var_dump($_FILES);
-        var_dump($_FILES["photo"],$allowed_formats);
+        // var_dump($_FILES);
+        // var_dump($_FILES["photo"],$allowed_formats);
         $testFoto=photoValidation($_FILES["photo"],$allowed_formats);
-        var_dump($testFoto);
+        // var_dump($testFoto);
         foreach($_POST as $key => $value){
             $_POST [$key] = htmlspecialchars(strip_tags(trim($value)));
         }

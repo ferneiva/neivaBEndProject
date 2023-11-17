@@ -43,13 +43,16 @@
     padding: 8px;
     border-radius: 6px;
 }
+.hidden-mail-inputs{
+    display: none;
+}
 .mail-btn .go{
     font-size: 1.1rem;
     padding: 4px;
     border: 1px solid black;
 }
 .mail-note h3{
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin: 0 auto;
     text-align: center;
 }
@@ -57,6 +60,7 @@
 
 .user-info{
     width: 89%;
+    min-height: 100px;
     background-color: rgba(216, 202, 139, 0.52);
     border: 1.5px solid rgba(0, 0, 0, 0.15);
     margin-left: 66px;
@@ -87,13 +91,15 @@
 
 .calendar-container{
     width: 89%;
-    height: 500px;
+    height: max-content;
     border: 1.5px solid rgba(0, 0, 0, 0.15);
     margin-left: 66px;
-    margin-right: 70px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     border-radius: 10px;
     /* background-color: aquamarine; */
+}
+.agenda-img{
+    width: 100%;
 }
 .reviews-title{
     /* font-size: 1.3rem; */

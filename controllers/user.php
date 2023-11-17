@@ -11,7 +11,8 @@ require("models/users.php");
 $model = new Users();
 
 $user = $model->getDetail($id);
-
+$sessionUser=$model->getDetail($_SESSION["user_id"]);
+// tem de levar if acima
 if( empty($user) ) {
     http_response_code(404);
     die("Not found");
@@ -45,6 +46,17 @@ $userAvgReview=$modelReviews->getAvgRatingsByUser($id);
 
 
 // var_dump($_SESSION["user_id"]);
+// require("core/mail.php");
 
 
+
+// if(isset($_POST["emailSend"])){
+//     $mail->Subject = ($_POST["subject"]);
+//     $mail->msgHTML($_POST["message"]);
+//     $mail->addAddress($_POST["destination _email"]);;
+// }else
+//     {
+//     echo 'Message has been sent';
+//     }
 require("views/user.php");
+    

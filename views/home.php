@@ -30,10 +30,12 @@
                         </div>
 
                     </div>
-                        
+                    <p class="search-comment-0">[Ex. city or urban zone]</p>
                     <div class="search-comment">
-                    Book helper for your house or let helper see your needs and contact you<br>
-                            (input city or your urban zone)
+                    
+                        <p class="search-comment-1">Register for additional features:</p>
+                        <p class="search-comment-2">Book helper for your house or let helper see your needs and reach you, and more.</p>
+                                
                     </div>
             </form>
         </div>

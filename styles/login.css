@@ -15,3 +15,8 @@
 .login-bin p, .login-bin div{
     margin-bottom: 35px;
 }
+.login-btn button{
+    font-size: 1.2rem;
+    padding: 6px;
+    margin-bottom: 70px;
+}

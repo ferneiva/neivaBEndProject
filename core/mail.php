@@ -12,8 +12,10 @@ use PHPMailer\PHPMailer\SMTP;
 //This should be done in your php.ini, but this is how to do it if you don't have access to that
 date_default_timezone_set('Etc/UTC');
 
-require '../vendor/autoload.php';
-require '../mail.config.php';
+// require '../vendor/autoload.php';
+require("vendor/autoload.php");
+// require '../mail.config.php';
+require("mail.config.468.php");
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer();
@@ -34,8 +36,10 @@ $mail->Port = 587;
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
+//$mail->Username = 'yourname@example.com';
 $mail->Username = $mailUsername;
 //Password to use for SMTP authentication
+// $mail->Password = 'yourpassword';
 $mail->Password = $mailPassword;
 //Set who the message is to be sent from site
 $mail->setFrom('from@example.com', 'First Last');
