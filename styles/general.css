@@ -69,6 +69,18 @@ main{
     border-radius: 5px;
     
 }
+.notification{
+    width: max-content;
+    height: max-content;
+    color: white;
+    background-color:rgb(0, 255, 26);
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
 button{
     background-color: rgba(216, 202, 139, 0.52);
     border-radius: 6px;

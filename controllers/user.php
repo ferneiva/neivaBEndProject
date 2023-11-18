@@ -45,18 +45,66 @@ $reviewsByUsers = $modelReviews->getReviewsByUserReviewed($id);
 $userAvgReview=$modelReviews->getAvgRatingsByUser($id);
 
 
-// var_dump($_SESSION["user_id"]);
-// require("core/mail.php");
+// envio de email
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+require("mail.config.468.php");
+require 'vendor/autoload.php';
+// $mailSender="fernandofalmeida@sapo.pt";
+// $mailReceiver="fernandojnfalmeida@gmail.com";
+$msg = '';
+if (array_key_exists('email', $_POST)) {
+
+// criar função
+//  function sendEmail($datamail){}
+//Criar nova instância do PHPMailer
+$mail = new PHPMailer();
+// Indicar que pretende utilizar SMTP e definir servidor
+$mail->isSMTP();
+$mail->Host = 'smtp.sapo.pt';
+$mail->SMTPAuth = true;
+$mail->Username = $mailUsername;
+$mail->Password = $mailPassword;
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
+
+$mail->CharSet = 'UTF-8';
 
 
+$mail->setFrom('fernandofalmeida@sapo.pt', 'Contacto help via sapo');
+//Endereço de e-mail para onde a mensagem será enviada.
+//$mail->addAddress('fernandojnfalmeida@gmail.com', ''); // pôr variável???
+//$mail->addAddress($mailReceiver, ''); //// coming from post not yet defined ???????????
+$mail->addAddress($_POST['receiver_email'], '');
+//(Reply-to)
+if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
+    //e-mail subject
+    $mail->Subject = 'Contact from Help Website';
+    // HTML to be used??????????????????????????????????
+    $mail->isHTML(false);
 
-// if(isset($_POST["emailSend"])){
-//     $mail->Subject = ($_POST["subject"]);
-//     $mail->msgHTML($_POST["message"]);
-//     $mail->addAddress($_POST["destination _email"]);;
-// }else
-//     {
-//     echo 'Message has been sent';
-//     }
+    //Definir versão HTML do e-mail
+    $mail->Body = "<p>E-mail: ". $_POST['email'] ."<br>Name: ". $_POST['name'] ."<br>Message:<br<br>". $_POST['message']." </p><p>Message sent by help.com</p>";
+
+    //Definir versão alternativa do e-mail apenas em plain text
+    $mail->AltBody = <<<EOT
+E-mail: {$_POST['email']}
+Nome: {$_POST['name']}
+Message: {$_POST['message']}
+EOT;
+    //Enviar a mensagem e verificar se ocorreram erros
+    if (!$mail->send()) {
+        //O motivo pelo qual um envio falha é mostrado em $mail->ErrorInfo
+        //no entanto não deverá mostrar estes erros ao utilizador, pelo que deverá apenas activar em situações de debug
+        $msg = 'Desculpe, ocorreu um problema a enviar o e-mail. Por favor tente novamente mais tarde.';
+    } else {
+        $msg = 'Message sent to User!';
+    }
+} else {
+    $msg = 'Endereço de e-mail inválido. Mensagem ignorada.';
+}
+}
+
+
 require("views/user.php");
     

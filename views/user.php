@@ -41,35 +41,41 @@
         </div>
         <?php
             if(isset($_SESSION["user_id"])){
-        ?>
+            ?>
                 <div class="user-header">
-                    <form id="user-send-mail" method="post" action="<?= ROOT ?>/user/">    
+                
+                    <?php
+                    //  print_r($sessionUser["name"]);
+                        $subjectMail="Email from a Help User " .$sessionUser["name"] .  " that wants to contact You";
+                        $mailStandardMessage="Please contact User name; " .$sessionUser["name"] .
+                        ", email; " .$sessionUser["email"].  " phone nr; " .$sessionUser["phone"]. " that is interested on your available slots.";
+                        // $destinationMail=$user["email"]; used a real mail:
+                        $destinationEmail="fernandojnfalmeida@gmail.com";
+                    ?>
+                    <form id="user-send-mail" method="post">    
                         <div class=sent-mail>
                             <div class="mail-title">
-                                <h2>Notify user You want to book services</h2>
+                                <h2>Notify User to enter in contact</h2>
                             </div>
                             <div class="hidden-mail-inputs">
-                                <?php
-                                // print_r($sessionUser["name"]);
-                                $subject="Help mail from User " .$sessionUser["name"] .  " that wants to book a service";
-                                $mailStandardMessage="Please contact User name; " .$sessionUser["name"] .
-                                ",email; " .$sessionUser["email"].  "phone nr; " .$sessionUser["phone"] . "that is interested on your available slots";
-                                $destinationMail=$user["email"];
-                                ?>
                                 
+                               
+                                <input type="text" name="name" id="name" value="<?=$sessionUser["name"]?>">
+                                <input type="email" name="email" id="email" value="<?=$destinationEmail?>">
                                 
-
-
-
-                                
-                                <input type="hidden" name="message" value="<?=$mailStandardMessage?>">
-                                <input type="hidden" name="destination_email" value="<?=$destinationMail?>">
+                                <input type="text" name="message" value="<?=$mailStandardMessage?>">
+                                <input type="hidden" name="receiver_email" value="<?=$destinationEmail?>">
 
                             </div>
                             <div class="mail-btn">
-                                <button class="go" type="submit" name="emailSend">Contact</button>
+                                <button class="go" type="submit" >Send Contact</button>
                             </div>
                         </div>
+                        <?php
+                        if (!empty($msg)) {
+                        echo "<h2 class='notification position'>$msg</h2>";
+                        }
+                        ?>
                         <div class="mail-note">
                                 <h3>[User will receive an email with your interest and contacts]</h3>
                         </div>

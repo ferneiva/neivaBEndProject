@@ -136,7 +136,7 @@
             </label>
             </div>
             <div class="large-button">
-                <button type="submit" name="send">Submit</button>
+                <button type="submit" name="send">Sign in</button>
             </div>
         </form>
     </section>
