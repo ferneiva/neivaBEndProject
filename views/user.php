@@ -47,7 +47,7 @@
                     <?php
                     //  print_r($sessionUser["name"]);
                         $subjectMail="Email from a Help User " .$sessionUser["name"] .  " that wants to contact You";
-                        $mailStandardMessage="Please contact User name; " .$sessionUser["name"] .
+                        $mailStandardMessage="<br>Please contact User name; " .$sessionUser["name"] .
                         ", email; " .$sessionUser["email"].  " phone nr; " .$sessionUser["phone"]. " that is interested on your available slots.";
                         // $destinationMail=$user["email"]; used a real mail:
                         $destinationEmail="fernandojnfalmeida@gmail.com";
