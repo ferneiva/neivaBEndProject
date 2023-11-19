@@ -42,6 +42,35 @@ option:not(:checked) {
     background-color: rgba(206, 202, 185, 0.52);
     background-color: rgba(188, 188, 30, 0.52);
   }
+.captcha{
+    display: flex;
+    justify-content: flex-start;
+    gap:10px;
+    height: max-content;
+}
+.captcha-code{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background-color: rgba(188, 188, 30, 0.32);
+    padding: 4px;
+}
+.captcha-cont{
+    margin-top: 6px;
+    background-color: yellow;
+    text-align: center;
+}
+.captcha-write{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 16px;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+    border-radius: 4px;
+}
+/* .captcha-label{
+    
+    
+} */
 .large-button button{
     margin-left: 86px;
 }

@@ -54,6 +54,9 @@ function userTypeValidation($word){
 if( isset($_POST["send"])){
         // var_dump($_FILES);
         // var_dump($_FILES["photo"],$allowed_formats);
+        // var_dump($_POST["captcha"]);
+        // var_dump($_POST["captcha-rand"]);
+
         $testFoto=photoValidation($_FILES["photo"],$allowed_formats);
         // var_dump($testFoto);
         foreach($_POST as $key => $value){
@@ -86,7 +89,9 @@ if( isset($_POST["send"])){
             mb_strlen($_POST["city"]) <=50 &&
             in_array($_POST["country"], $country_codes)&&
             phoneValidation($_POST["phone"])==true&&
-            photoValidation($_FILES["photo"],$allowed_formats)==true
+            photoValidation($_FILES["photo"],$allowed_formats)==true&&
+            $_POST["captcha"] === $_POST["captcha-rand"]
+            
             
             /*$_FILES["photo"]["error"] === 0 &&
             $_FILES["photo"]["size"] > 0 &&
@@ -125,4 +130,7 @@ if( isset($_POST["send"])){
             $message = "Fields incorrect or wrong image ";
         }
 }
+
+$rand=rand(999999,100000);
+
 require("views/register.php");

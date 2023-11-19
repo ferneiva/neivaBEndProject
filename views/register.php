@@ -129,11 +129,26 @@
                     <input type="file" name="photo" accept="<?= implode(",", $allowed_formats) ?>">
                 </label>
             </div>
+            <div class="register-bin captcha">
+                <div class="captcha-code">
+                    <label for="captcha">Captcha Code</label>
+                    <div class="captcha-cont"><?php echo $rand; ?></div>
+                </div>
+                <div class="captcha-write">
+                    <label class="captcha-label">
+                    Write Captcha
+                    <input type="text" name="captcha" placeholder="Enter Captcha" required>
+                    </label>
+                    <input type="hidden"  name="captcha-rand" value="<?php echo $rand; ?>" >
+                </div>
+            </div>
+
+            
             <div class="register-bin">
-            <label>
-                <input type="checkbox" name="agrees" required>
-                I agree with terms and conditions
-            </label>
+                <label>
+                    <input type="checkbox" name="agrees" required>
+                    I agree with terms and conditions
+                </label>
             </div>
             <div class="large-button">
                 <button type="submit" name="send">Sign in</button>
