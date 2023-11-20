@@ -13,6 +13,12 @@
     src: url(/styles/fonts/Metropolis-Medium.otf);
 
 }
+@font-face {
+    font-family: captchaFont;
+    src: url(/styles/fonts/Xtradex.otf);
+
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-family: Helvetica,Arial,sans-serif;

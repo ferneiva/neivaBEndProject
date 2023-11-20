@@ -22,6 +22,9 @@
             <p class="register">[If registered, <a class="link" href="<?= ROOT ?>/login/">log in here]</a></p>
         </div>
     </section>
+    
+
+    
     <section class="container-form-register">
 
         <?php
@@ -29,7 +32,7 @@
                 echo '<p class="warning" role="alert"> ' .$message. ' </p>';
             }
         ?>
-        <form id="help-client-form" method="post" action="<?= ROOT ?>/register/" enctype="multipart/form-data">
+        <form id="help-client-form" method="post"   enctype="multipart/form-data">
             <div class="register-bin">
                 <label>
                     Name

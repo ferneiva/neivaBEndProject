@@ -15,12 +15,6 @@ $allowed_formats=[
     ];
 
 
-// function phoneValidation($word){
-//     if(!empty($word) && mb_strlen($word) >=9 && mb_strlen($word) <=30 )
-//         {return true;}
-//     else
-//         {return false;}
-// }
 function phoneValidation($word){
     if(empty($word))
         {return true;}
@@ -55,7 +49,7 @@ if( isset($_POST["send"])){
         // var_dump($_FILES);
         // var_dump($_FILES["photo"],$allowed_formats);
         // var_dump($_POST["captcha"]);
-        // var_dump($_POST["captcha-rand"]);
+        var_dump($_POST["captcha-rand"]);
 
         $testFoto=photoValidation($_FILES["photo"],$allowed_formats);
         // var_dump($testFoto);
@@ -131,6 +125,25 @@ if( isset($_POST["send"])){
         }
 }
 
-$rand=rand(999999,100000);
+
+$rand=bin2hex(random_bytes(4)); 
+
+// header("Content-Type: image/png");
+// $image= imagecreatefrompng("scrambled1.png");
+// imagefilter($image, IMG_FILTER_BRIGHTNESS,55);
+// imagefilter($image, IMG_FILTER_GRAYSCALE);
+// $image = imagescale($image, 220, 75);
+// $color=imagecolorallocate($image, 30,30,30);
+// $font="Xtradex.otf"; 
+// $text=bin2hex(random_bytes(4));
+// $_SESSION["captcha"] = $text;
+// imagettftext($image, 48, 0, 16, 60, $color, $font, $text);
+
+// $displayImage=imagepng($image); erro
+// var_dump($displayImage); erro
+// imagepng($image); ok
+
+// $displayCaptcha=("captcha.php");
+// var_dump($displayCaptcha);
 
 require("views/register.php");
