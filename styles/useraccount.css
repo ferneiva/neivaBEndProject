@@ -12,6 +12,9 @@
     border-radius: 10px;
     text-align: center;
 }
+.pick,.pick1{
+    cursor: pointer;
+}
 .useraccount-header-2{
     font-size: 1.0rem;
     font-weight: 600;
@@ -26,3 +29,78 @@
 .useraccount-right-label{
     font-size: 1.1rem ;
 }
+.redirect{
+    height:36px;
+}
+.redirect a{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: rgba(214, 202, 151, 0.2);  
+    font-size: 1.3rem;
+    padding: 3px;
+}
+.userAccount-cont{
+    margin-left: 4.9%;
+    width: 90%;
+    height: max-content;
+    /* background-color: aquamarine; */
+}
+.tab-selector{
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    /* border-top-right-radius: 10px;
+    border-top-left-radius: 10px; */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:60%;
+    min-height: 50px;
+    /* background-color: blueviolet; */
+    padding: 4px;
+    margin-bottom: 0px;
+    background-color: rgba(214, 202, 151, 0.42);
+    
+}
+.tab-selector-title{
+    width: 220px;
+}
+.closeTab{
+    border: 0px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0px;
+    background-color: rgba(214, 202, 151, 0.01);
+}
+.close{
+    cursor:pointer;
+}
+.empty{
+    width: 90%;
+    height: 25px;
+}
+.passwordContainer,.passwordContainer1{
+    height: 240px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: rgba(214, 202, 151, 0.22);
+}
+.hide{
+    display: none;
+}
+.newpass-bin{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4%;
+    width: 90%;
+    height: 120px;
+}
+.large-button button{
+    margin-left: 0px;
+}
+.btn-pass{
+    margin-top: 16px;
+    margin-bottom: 0px;
+    color: rgb(35, 20, 143);
+}
+
+

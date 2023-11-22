@@ -50,6 +50,7 @@ main{
 .large-button{
     margin-top: 20px;
     margin-bottom: 40px;
+    color: rgb(35, 20, 143);
 }
 
 .large-button button{
@@ -91,3 +92,4 @@ button{
     background-color: rgba(216, 202, 139, 0.52);
     border-radius: 6px;
 }
+

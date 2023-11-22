@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/styles/register.css">
     <link rel="stylesheet" href="/styles/footer.css">
     <link rel="stylesheet" href="/styles/useraccount.css">
+    <script src="/script/useraccount.js" defer></script>
 
 
         <title><?=$user ["name"] ?></title>
@@ -34,12 +35,15 @@
             ?>
                 <h1><?= $user["name"] ?></h1>
                 <div class="useraccount-header">
-                    <h2 class="useraccount-header-1">My account</h2>
-                    <h2 class="useraccount-header-2">[Change any personnal information below and submit]</h2>
+                    <h2 class="useraccount-header-1">My information page</h2>
+                    <h2 class="useraccount-header-2">[Find and change personnal information]</h2>
+
                 </div>
                 
     </div>
-       
+        <div class="user-header redirect">
+            <h2><a href="<?= ROOT ?>/user/<?=$user["user_id"]?>">Go to your User Account</a></h2>
+            </div>
     
     <section class="container-form-register">
 
@@ -133,8 +137,74 @@
             </div>
         </form>
     </section>
+    <!-- ++++++++++++++password changes +++++++++++++++++++++++++++++++ -->
+    <section class="userAccount-cont">
+        <div class="tab-selector">
+            <h2 class="tab-selector-title" >Password change</h2>
+            <h2  class="useraccount-header-1 pick">Open tab</h2>
+        </div>
+        
+        <div class="passwordContainer hide">
+            <?php
+                if(isset($message1)){
+                    echo '<p class="warning" role="alert"> ' .$message1. ' </p>';
+                }
+            ?>
+            <form class="form-pass" method="post" action="<?= ROOT ?>/useraccount/">
+                <div class="register-bin">
+                    <label>
+                        Current password
+                        <input type="password" name="password" placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
+                    </label>
+                </div>
+                <div class="newpass-bin">
+                    <div class="register-bin">
+                        <label>
+                            New password
+                            <input type="password" name="newpass" placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
+                        </label>
+                    </div>    
+                    <div class="register-bin">
+                        <label>
+                            Repeat new password
+                            <input type="password" name="newpassrepeat" placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
+                        </label>
+                    </div>
+                    <div class="large-button btn-pass">
+                        <button type="submit" name="sendNpass">Change password</button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="tab-selector closeTab">
+                <h2 class="tab-selector-title" ></h2>
+                <h2 id="binClose" class="useraccount-header-1 close">Close tab</h2>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="empty"></section>
+    <!-- +++++++++++++++New section with email information+++++++++++++++++ -->
+    <section class="userAccount-cont">
+
+        <div class="tab-selector">
+                <h2 class="tab-selector-title" >Show emails</h2>
+                <h2  class="useraccount-header-1 pick1">Open tab</h2>
+        </div>
+            
+        <div class="passwordContainer1 hide">
+            
+            
+            <div class="tab-selector closeTab">
+                <h2 class="tab-selector-title" ></h2>
+                <h2 id="binClose1" class="useraccount-header-1 close">Close tab</h2>
+            </div>    
+        </div>
+    </section>
+    <section class="empty"></section>
 </main>
     <?php require ("templates/footer.php"); ?> 
+    <!-- <script src="/script/useraccount.js"></script> -->
 </body>
 </html>
     

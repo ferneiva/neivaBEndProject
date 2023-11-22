@@ -119,6 +119,20 @@ class Users extends Base
 		]);
 		return $query->fetch();
 	}
+	public function newPassword ($data){
+		$query =$this->db->prepare("
+		UPDATE users
+		SET password=?
+		WHERE user_id = ?
+		");
+
+		$query->execute([
+			password_hash($data["newpass"], PASSWORD_DEFAULT),
+			$data["user_id"],
+		]);
+		return $query->fetch();
+	}
+
 
 
 	
