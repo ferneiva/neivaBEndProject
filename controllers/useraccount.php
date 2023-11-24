@@ -165,16 +165,18 @@ if( isset($_POST["sendNpass"])){
 
                     $newPassData=$_POST;
                     $newPassData["user_id"]=$_SESSION["user_id"];
-                    $message1=NULL;
-                    unset($_POST);
+                    $message2="Password changed";
+                    
                     $modelUpdate->newPassword($newPassData);
                     
                     
 
                 }
                 else{
+                    
                     Var_dump($_POST);
                     $message1 ="Your old password is incorret";
+                    
                 }
         }
         else{
@@ -183,7 +185,13 @@ if( isset($_POST["sendNpass"])){
             $message1 = "Input password fields incorrect";
         }
 }
+require("models/emails.php");
+$modelEmails = new Emails();
+$post=$user["user_id"];
+var_dump($post);
 
+$emailsByUser = $modelEmails->emailsByUser($post);
+// var_dump($emailsByUser);
 
 
 

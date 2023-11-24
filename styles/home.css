@@ -42,7 +42,10 @@
 .search-comment-2{
     margin-bottom: 20px;
 }
-
+.notHome{
+    margin-left: 40%;
+    font-size: 1.7rem;
+}
 
 h1{
     font-size: 1.8rem;

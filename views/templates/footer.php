@@ -23,18 +23,19 @@
                     <p>Help@help.com +1 7993 2905</p>
                 </div>
                 <div class="social-contact">
-                    <form method="post" action="<?= ROOT ?>/mail/">
+                    <form method="post" action="<?= ROOT ?>/home/">
                         <div class="footer-mail">
                             <div>
                                 <p>Contact Us</p>
                             </div>
                             <div>
                                 <label>
-                                    <textarea type="text" rows="2" placeholder="" aria-label="contact-us" minlength="3" maxlength="200" name="contactUs"></textarea>
+                                    <textarea type="text" name="contactText" rows="2" placeholder="Name,email,text"
+                                    aria-label="contact-us" minlength="3" maxlength="400"></textarea>
                                 </label>
                             </div>
                             <div>
-                                <button class="go" type="submit" name="submit">GO</button>
+                                <button class="go" type="submit" name="contact">GO</button>
                             </div>
                         </div>
                     </form>

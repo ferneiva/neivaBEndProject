@@ -19,6 +19,16 @@
 <body>
     <?php require ("templates/header.php"); ?>   
 <main>
+<?php
+                if(isset($message1)){
+                    echo '<p class="warning uaPosition" role="alert"> ' .$message1. ' </p>';
+                }
+            ?>
+            <?php
+                if(isset($message2)){
+                    echo '<p class="notification uaPosition" role="alert"> ' .$message2. ' </p>';
+                }
+?>
     <div class="user-header">
             <?php
                 if(empty($user["photo"]))
@@ -147,27 +157,32 @@
         <div class="passwordContainer hide">
             <?php
                 if(isset($message1)){
-                    echo '<p class="warning" role="alert"> ' .$message1. ' </p>';
+                    echo '<p class="warning uaPosition" role="alert"> ' .$message1. ' </p>';
                 }
             ?>
-            <form class="form-pass" method="post" action="<?= ROOT ?>/useraccount/">
+            <?php
+                if(isset($message2)){
+                    echo '<p class="notification uaPosition" role="alert"> ' .$message2. ' </p>';
+                }
+            ?>
+            <!-- <form class="form-pass" method="post" action="<?= ROOT ?>/useraccount/"> -->
+            <form class="form-pass" method="post" action="<?= ROOT ?>/useraccount/" >
                 <div class="register-bin">
                     <label>
                         Current password
-                        <input type="password" name="password" placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
+                        <input type="password" name="password" value="<?php echo isset($_POST["sendNpass"]) ? $_POST["password"] : ''; ?>" placeholder="Minimum 8 caracteres"   required minlenght="8" maxlength="1000">
                     </label>
-                </div>
                 <div class="newpass-bin">
                     <div class="register-bin">
                         <label>
                             New password
-                            <input type="password" name="newpass" placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
+                            <input type="password" name="newpass" value="<?php echo isset($_POST["sendNpass"]) ? $_POST["newpass"] : ''; ?>"placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
                         </label>
                     </div>    
                     <div class="register-bin">
                         <label>
                             Repeat new password
-                            <input type="password" name="newpassrepeat" placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
+                            <input type="password" name="newpassrepeat" value="<?php echo isset($_POST["sendNpass"]) ? $_POST["newpassrepeat"] : ''; ?>" placeholder="Minimum 8 caracteres" required minlenght="8" maxlength="1000">
                         </label>
                     </div>
                     <div class="large-button btn-pass">
@@ -188,13 +203,39 @@
     <section class="userAccount-cont">
 
         <div class="tab-selector">
-                <h2 class="tab-selector-title" >Show emails</h2>
+                <h2 class="tab-selector-title" >Contacts made</h2>
                 <h2  class="useraccount-header-1 pick1">Open tab</h2>
         </div>
             
-        <div class="passwordContainer1 hide">
-            
-            
+        <div class="passwordContainer1 emails-list hide">
+            <ul class="emails-list">
+            <?php
+                if(empty($emailsByUser)){
+                    echo'
+                    <li class="user-review-bin email-bin bold">This User does not have emails</li>
+                    ';
+                }
+                else{
+                    foreach($emailsByUser as $email){
+                        echo'
+                            <li class="user-review-bin email-bin">
+                                
+                                <p>email Date:&nbsp'.date("d/m/y", strtotime($email["date"])).'</p>
+                                <p>Subject:&nbsp'.$email["emailSubject"].'</p>
+                                <p>User Type:&nbsp'.$email["userType"].'</p>
+                                <p>Send To:&nbsp'.$email["receiverName"].'</p>
+                                <p>Receiver Email:&nbsp'.$email["receiver_email"].'</p>
+                                <p>Message:&nbsp'.$email["message"].'</p>
+                            </li>    
+                        ';
+                    }
+                }
+            ?>
+            </ul>
+
+
+
+
             <div class="tab-selector closeTab">
                 <h2 class="tab-selector-title" ></h2>
                 <h2 id="binClose1" class="useraccount-header-1 close">Close tab</h2>

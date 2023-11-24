@@ -63,7 +63,7 @@ footer{
     margin-bottom: 20px;
 }
 .address{
-    margin-top: 4px;
+    margin-top: 22px;
     font-weight: 300;
     width: max-content;
 }
@@ -79,8 +79,9 @@ footer{
     font-weight: 800;
 }
 .footer-mail textarea{
-    padding-top: 0;
-    line-height: 4px;
+    padding-top: 26px;
+    line-height: 16px;
+    font-size: 1.2rem;
 }
 .footer-mail .go{
     margin-top: 6px;
@@ -88,7 +89,7 @@ footer{
 }
 
 .icons-footer{
-    margin-top: 8px;
+    margin-top: 24px;
     width: 30%;
 }
 .icons-footer{

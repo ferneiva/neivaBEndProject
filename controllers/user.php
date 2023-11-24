@@ -97,14 +97,14 @@ if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
         if (!$mail->send()) {
             //O motivo pelo qual um envio falha é mostrado em $mail->ErrorInfo
             //no entanto não deverá mostrar estes erros ao utilizador, pelo que deverá apenas activar em situações de debug
-            $msg = 'Desculpe, ocorreu um problema a enviar o e-mail. Por favor tente novamente mais tarde.';
+            $msg = 'Sorry, an error occurred sending the e-mail please try again later.';
         } else {
-            $msg = 'Message sent to User!';
+            $msg = 'Email message sent to User!';
         }
     } else {
-        $msg = 'Endereço de e-mail inválido. Mensagem ignorada.';
+        $msg = 'Invalid e-mail adsress. Menssage ignored.';
     }
-    //iNSERT email into table emails:
+    //iNSERT email into table emails:+++++++++++++
     require("models/emails.php"); 
     $modelEmails = new Emails();
     //user_id=$sessionUser["user_id"];
@@ -113,14 +113,17 @@ if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
     //message=$_POST['message']; ***
     //sender_email = $sessionUser ["email"];
     //receiver_email= $_POST['email'];
-
+    // var_dump($user["email"]);
     $postMail=$_POST;
     $postMail["user_id"]=$sessionUser["user_id"];
     $postMail["to_id"]=$user["user_id"];
     $postMail["subject"]='Help site contact';
     $postMail["sender_email"]=$sessionUser["email"];
     $postMail["receiver_email"]=$_POST['email'];
-    var_dump($postMail);
+
+    // $postMail["receiver_email"]=$_POST['message'];
+    $postMail["message"]= htmlspecialchars(strip_tags(trim($_POST['message'])));
+    // var_dump($postMail);
 
     $createEmailRegister = $modelEmails->create($postMail);
 

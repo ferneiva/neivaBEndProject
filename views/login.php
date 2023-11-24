@@ -20,7 +20,7 @@
 <div class="login-bin">
     <?php
     if(isset($message)){
-        echo '<p class="alert" role="alert">' .$message. '</p>';
+        echo '<p class="warning" alert" role="alert">' .$message. '</p>';
 
     }
     ?>

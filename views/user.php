@@ -51,6 +51,7 @@
                         ", email; " .$sessionUser["email"].  " phone nr; " .$sessionUser["phone"]. " that is interested on your available slots.";
                         // $destinationMail=$user["email"]; used a real mail:
                         $destinationEmail="fernandojnfalmeida@gmail.com";
+                        $receiverEmail=$user["email"];
                     ?>
                     <form id="user-send-mail" method="post">    
                         <div class=sent-mail>
@@ -61,7 +62,7 @@
                                 
                                
                                 <input type="text" name="name" id="name" value="<?=$sessionUser["name"]?>">
-                                <input type="email" name="email" id="email" value="<?=$destinationEmail?>">
+                                <input type="email" name="email" id="email" value="<?=$receiverEmail?>">
                                 
                                 <input type="text" name="message" value="<?=$mailStandardMessage?>">
                                 <input type="hidden" name="receiver_email" value="<?=$destinationEmail?>">
@@ -125,16 +126,16 @@
                                 <select name="rating">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="2">3</option>
-                                    <option value="2">4</option>
-                                    <option value="2">5</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
                                 </select>
                             </label>
                         </div>
                         <div>
                             
                             <textarea name="reviewContent" placeholder="Your review" aria-label="review-content"
-                            rows="1" cols="40" minlength="8" maxlength="65535"></textarea>
+                            rows="1" cols="40" minlength="3" maxlength="65535"></textarea>
                             
                         </div>
                         <div>

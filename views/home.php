@@ -15,6 +15,11 @@
 <body>
 <?php require ("templates/header.php"); ?>
     <main>
+    <?php
+            if(isset($message)){
+                echo '<p class="notification notHome" role="alert"> ' .$message. ' </p>';
+            }
+        ?>
     <section class="search">
         <div class="search-bar">
             <form method="get" action="<?= ROOT ?>/search/">

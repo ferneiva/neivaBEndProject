@@ -1,3 +1,7 @@
+.uaPosition{
+    margin-left: 40%;
+    margin-bottom: 30px;
+}
 .useraccount-header{
     height: max-content;
     width: max-content;
@@ -73,10 +77,10 @@
 }
 .empty{
     width: 90%;
-    height: 25px;
+    height: 65px;
 }
 .passwordContainer,.passwordContainer1{
-    height: 240px;
+    height: 300px;
     border: 1px solid rgba(0, 0, 0, 0.15);
     margin-bottom: 50px;
     border-radius: 10px;
@@ -102,5 +106,17 @@
     margin-bottom: 0px;
     color: rgb(35, 20, 143);
 }
-
+.emails-list{
+    height:max-content;
+}
+.email-bin{
+    margin-top: 10px;
+    background-color: rgba(214, 202, 151, 0.28);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.bold{
+    font-weight: 900;
+    font-size: 1.4rem;
+}
 
