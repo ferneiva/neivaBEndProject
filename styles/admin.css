@@ -1,0 +1,12 @@
+.adminForm{
+    margin-left: 5%;
+    margin-bottom: 40px;
+}
+.adminForm .admin-input{
+    margin-bottom: 16px;
+}
+.admin-btn button{
+    margin-top: 20px;
+    font-size: 1.3rem;
+    padding: 4px;
+}

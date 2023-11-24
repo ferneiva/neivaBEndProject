@@ -4,24 +4,24 @@ require_once("base.php");
 
 class Users extends Base
 {
-	public function getAll() {
+	public function getAll($nr) {
 		
 		$query = $this->db->prepare("
+			
 			SELECT 
-				users.user_id, users.user_type, users.name ,
-				countries.name AS countryName, users.city, users.urban_zone, users.skills, users.resume
+				users.user_id, users.user_type, users.name,
+				countries.name AS countryName, users.city,
+				users.urban_zone, users.skills, users.resume
             FROM
 				users
 			INNER JOIN countries
 			ON countries.code = users.country
 			ORDER BY users.user_id DESC
-			LIMIT 100
-			
-		
-			
+			LIMIT ?
 		");
-		
+		$query->bindParam(1,$nr, PDO::PARAM_INT);
 		$query->execute();
+		
 		
 		return $query->fetchAll();
 	}

@@ -9,14 +9,20 @@
                 <li><a href="<?= ROOT ?>/info/">Info</a></li>
                 
                 <?php
-                        if( isset($_SESSION["user_id"]) ){
+                        if( isset($_SESSION["user_id"])){
                 ?>
                         <li><a href="<?= ROOT ?>/useraccount/">My account</a></li>
                         <li><a href="<?= ROOT ?>/logout/">Log out</a></li>
                 <?php
                         }
-                        else {
+                        elseif(isset($_SESSION["admin_id"])) {
                 ?>
+                                <li><a href="<?= ROOT ?>/adminpage/">Admin Page</a></li>
+                                <li><a href="<?= ROOT ?>/logout/">Log out</a></li>
+                <?php
+                         }
+                         else{
+                ?>      
                         <li><a href="<?= ROOT ?>/login/">Login</a></li>
                         <li><a href="<?= ROOT ?>/register/">Register</a></li>
                 <?php

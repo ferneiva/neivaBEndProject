@@ -41,6 +41,7 @@ a:hover{
 }
 main{
     margin-top: 120px;
+    height: max-content;
 }
 /* .warning{
     color: red;

@@ -30,7 +30,7 @@
                             </div>
                             <div>
                                 <label>
-                                    <textarea type="text" name="contactText" rows="2" placeholder="Name,email,text"
+                                    <textarea type="text" name="contactText" rows="2" placeholder="Name, email, text     [ex.pass recovery]"
                                     aria-label="contact-us" minlength="3" maxlength="400"></textarea>
                                 </label>
                             </div>

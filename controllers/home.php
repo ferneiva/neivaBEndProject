@@ -4,13 +4,10 @@ require ("models/users.php");
 
 $model = new Users();
 
-
-// $limit["number"]= 2;
-// $limit["number"]=$limit["2"];
-// {$limit["number"]=> 2 }
-// var_dump($limit);
-// $users = $model->getAll($limit);
-$users = $model->getAll();
+  $limit=50;
+    //var_dump($limit);
+    
+$users = $model->getAll($limit);
 
 if( isset($_POST["contact"])){
 
