@@ -1,20 +1,20 @@
 <?php
 require ("models/users.php");
 
-$model = new Users();
+$modelAdmin = new Users();
 
-  $limit=50000000000;
+  $limit=500000000000000000;
     //var_dump($limit);
     
-$users = $model->getAll($limit);
+$usersList = $modelAdmin->getAll($limit);
 
 require("models/countries.php");
-$modelCountries = new Countries();
+$modelCountriesList = new Countries();
 
-$countries = $modelCountries->get();
-$country_codes = [];
-foreach($countries as $country){
-    $country_codes[] = $country["code"];
+$countriesList = $modelCountriesList->get();
+$country_codesList = [];
+foreach($countriesList as $countryList){
+    $country_codesList[] = $countryList["code"];
 }
 $allowed_formats=[
     "png"=>"image/png",

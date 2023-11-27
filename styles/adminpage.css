@@ -31,12 +31,7 @@
     height: 45px;
     background-color: rgba(216, 202, 139, 0.52);
 }
-.hide-list{
-    display:none;
-}
-.show-list{
-    display:block;
-}
+
 .list-open-close button{
     margin-right: 5%;
 }
@@ -46,7 +41,16 @@
     height: 35px;
     
 }
-.list-users-ctn form{
+.list-users-ctn{
+    height: max-content;
+}
+.hide-list{
+    display:none;
+}
+.show-list{
+    display:block;
+}
+.form-list{
     border: 1.5px solid rgba(0, 0, 0, 0.15);
     display:flex;
     justify-content: space-around;

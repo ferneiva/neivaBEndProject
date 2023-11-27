@@ -10,8 +10,11 @@ class Users extends Base
 			
 			SELECT 
 				users.user_id, users.user_type, users.name,
+				users.address, users.postal_code,
+
 				countries.name AS countryName, users.city,
-				users.urban_zone, users.skills, users.resume
+				users.urban_zone, users.phone, users.email,
+				users.skills, users.resume, users.photo
             FROM
 				users
 			INNER JOIN countries
