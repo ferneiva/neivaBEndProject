@@ -9,12 +9,12 @@ $modelAdmin = new Users();
 $usersList = $modelAdmin->getAll($limit);
 
 require("models/countries.php");
-$modelCountriesList = new Countries();
+$modelCountries = new Countries();
 
-$countriesList = $modelCountriesList->get();
-$country_codesList = [];
-foreach($countriesList as $countryList){
-    $country_codesList[] = $countryList["code"];
+$countries = $modelCountries->get();
+$country_codes = [];
+foreach($countries as $country){
+    $country_codes[] = $country["code"];
 }
 $allowed_formats=[
     "png"=>"image/png",

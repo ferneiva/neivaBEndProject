@@ -60,11 +60,16 @@
                         <label>
                             Country
                             <select name="country">
-                            
-                            foreach($countriesList as $countryList){
-
-                        '.$selected= $countryList["code"]===$user["countryName"] ? "selected" : "";.'
-                                .<option value="' .$countryList["code"]. '" ' .$selected. '>' .$countryList["name"]. '</option>
+                    ';
+                    foreach($countries as $country){
+                        $selected= $country["code"]==="US" ? " selected" : "";
+                        echo'
+                            <option value="' .$country["code"]. '" ' .$selected. '>' .$country["name"]. '</option>
+                                
+                        ';
+                        
+                    }
+                    echo'
                             </select> 
                         </label>
                     </div>
