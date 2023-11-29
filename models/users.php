@@ -159,6 +159,28 @@ class Users extends Base
 		]);
 		return $query->fetchAll();
 	}
+	public function block ($nr,$id){
+		$query =$this->db->prepare("
+		UPDATE users
+		SET blocked=?
+		WHERE user_id = ?
+		");
+		$query->bindParam(1,$nr, PDO::PARAM_INT);
+		return $query->execute([$nr,$id]);
+	}
+
+	public function unblock ($nr,$id){
+		$query =$this->db->prepare("
+		UPDATE users
+		SET blocked=?
+		WHERE user_id = ?
+		");
+		$query->bindParam(1,$nr, PDO::PARAM_INT);
+		return $query->execute([$nr,$id]);
+	}
+	
+	
+
 
 
 

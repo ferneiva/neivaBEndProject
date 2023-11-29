@@ -29,6 +29,7 @@
             <div class="list-users-ctn hide-list">
 <?php
                 foreach($usersList as $user){
+                    
                 echo'
                 <div class="form-ctn">
                     <form class="form-list" method="post" action="/adminpage/" enctype="multipart/form-data">

@@ -115,12 +115,20 @@ if( isset($_POST["change"])){
             $message = "Fields incorrect or wrong image";
         }
 }
-if( isset($_POST["delete"])){
-    $modelDelete = new Users();
-    $idDeleted=$_POST["user_id"];
-
-    $modelDelete->delete($idDeleted);
+if( isset($_POST["block"])){
+    $modelBlock = new Users();
+    $idBlocked=$_POST["user_id"];
+    $block=1;
+    $modelBlock->block($block,$idBlocked);
 }
+
+if( isset($_POST["unblock"])){
+    $modelUnblock = new Users();
+    $idBlocked=$_POST["user_id"];
+    $unblock=0;
+    $modelUnblock->unblock($unblock,$idBlocked);
+}
+
 
 
 
