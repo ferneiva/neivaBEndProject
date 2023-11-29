@@ -120,20 +120,35 @@
                     </form>
                 ';
                 echo'
-                    <form class="form-delete" method="post" action="/adminpage/">
+                    <form class="form-block" method="post" action="/adminpage/">
                         <input type="hidden"  name="user_id" value="'.$user["user_id"].'" >
-                        <button type="submit" name="delete">
-                            <div class="delete-btn-text">
-                                <div>D</div>
-                                <div>E</div>
-                                <div>L</div>
-                                <div>E</div>
-                                <div>T</div>
-                                <div>E</div>
+                        <button type="submit" name="block">
+                            <div class="block-text">
+                                <div>*</div>
+                                <div>B</div>
+                                <div>l</div>
+                                <div>o</div>
+                                <div>c</div>
+                                <div>k</div>
+                                <div>*</div>
+                            </div>
+                        </button>
+                    </form>
+                    <form class="form-block" method="post" action="/adminpage/">
+                        <input type="hidden"  name="user_id" value="'.$user["user_id"].'" >
+                        <button type="submit" name="unblock">
+                            <div class="unblock-text">
+                                <div>U</div>
+                                <div>n</div>
+                                <div>b</div>
+                                <div>l</div>
+                                <div>o</div>
+                                <div>c</div>
+                                <div>k</div>
                             </div>
                         </button>
 
-                </form>
+                    </form>
             </div>
                 
                 ';
