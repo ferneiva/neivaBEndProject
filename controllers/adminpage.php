@@ -80,8 +80,8 @@ if( isset($_POST["change"])){
         ){
             // require("models/users.php");
             $modelUpdate = new Users();
-            $idUpdated=$_SESSION["user_id"];
-            //$idUpdated=$user(["user_id"]);
+            $idUpdated=$_POST["user_id"];
+            
             var_dump($idUpdated);
             $file_extension = array_search($_FILES["photo"]["type"], $allowed_formats);
             $filename = date("YmdHis") . "_". mt_rand(100000, 999999) . "." .$file_extension;
@@ -105,7 +105,7 @@ if( isset($_POST["change"])){
             $modelUpdate->update($post);
             
             
-            header("Location:" .ROOT. "/user/" .$_SESSION["user_id"]);
+            // header("Location:" .ROOT. "/user/" .$user["user_id"]);
             
             
         }
@@ -114,6 +114,12 @@ if( isset($_POST["change"])){
             // var_dump($_POST);
             $message = "Fields incorrect or wrong image";
         }
+}
+if( isset($_POST["delete"])){
+    $modelDelete = new Users();
+    $idDeleted=$_POST["user_id"];
+
+    $modelDelete->delete($idDeleted);
 }
 
 

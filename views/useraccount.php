@@ -126,13 +126,13 @@
             <div class="register-bin">
                 <label>
                     Skills (optional)
-                    <textarea type="text" name="skills" value="<?= $user["skills"]?>" placeholder="Your skills" minlength="9" maxlength="200"></textarea>
+                    <textarea type="text" name="skills" placeholder="<?php echo isset($_POST["change"]) ? $_POST["Skills"] : 'Your Skills'; ?>" minlength="9" maxlength="200"></textarea>
                 </label>
             </div>
             <div class="register-bin">
                 <label>
                     Resumé (optional)
-                    <textarea type="text" name="resume" value="<?= $user["resume"]?>" placeholder="Your curriculum" minlength="9" maxlength="500"></textarea>
+                    <textarea type="text" name="resume" placeholder="<?php echo isset($_POST["change"]) ? $_POST["resume"] : 'Your curriculum'; ?>" minlength="9" maxlength="500"></textarea>
                 </label>
             </div>
             <div class="register-bin">
