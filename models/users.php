@@ -50,7 +50,7 @@ class Users extends Base
 	}
 	public function getByEmail($email){
         $query = $this->db->prepare("
-        SELECT user_id, password
+        SELECT user_id, password, blocked
         FROM users
         WHERE email= ?            
 		");

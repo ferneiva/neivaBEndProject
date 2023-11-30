@@ -13,19 +13,24 @@ if( isset($_POST["send"])){
         require("models/users.php");
         $model = new Users();
         $user = $model->getByEmail( $_POST["email"]);
+       
      
-
-
-
-        if(
-            !empty($user) &&
-            password_verify($_POST["password"], $user["password"])
-        )   {
-                $_SESSION["user_id"] = $user["user_id"];
-                header("Location:" .ROOT. "/user/" .$_SESSION["user_id"]);      
-            }
+        if($user["blocked"]==1){
+            $message="Your account is blocked";
+            // header("Location:" .ROOT. "/home/");
+        }
         else{
-            $message="Incorrect email or password";
+
+            if(
+                !empty($user) &&
+                password_verify($_POST["password"], $user["password"])
+            )   {
+                    $_SESSION["user_id"] = $user["user_id"];
+                    header("Location:" .ROOT. "/user/" .$_SESSION["user_id"]);      
+                }
+            else{
+                $message="Incorrect email or password";
+            }
         }
     }
     else{
