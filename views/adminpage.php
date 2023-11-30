@@ -29,11 +29,23 @@
             <div class="list-users-ctn hide-list">
 <?php
                 foreach($usersList as $user){
-                    
+
                 echo'
                 <div class="form-ctn">
+                    <div class="status">
+                        <p class="id">ID:<br>'.$user["user_id"].'</p>
+                
+                    <p class="blocked">
+                ';
+                    $blocked=($user["blocked"]==1) ? "blocked" : '';
+                    
+                echo'
+                    '.$blocked.'</p>
+                        
+    	           </div>
                     <form class="form-list" method="post" action="/adminpage/" enctype="multipart/form-data">
-                       <input type="hidden"  name="user_id" value="'.$user["user_id"].'" >
+                       
+                    <input type="hidden"  name="user_id" value="'.$user["user_id"].'" >
                         <div class="list-user-bin">
                             <label>
                                 Name
@@ -150,7 +162,7 @@
                         </button>
 
                     </form>
-            </div>
+                </div>
                 
                 ';
             

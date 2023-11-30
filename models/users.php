@@ -13,7 +13,8 @@ class Users extends Base
 				users.address, users.postal_code,
 				countries.name AS countryName, users.city,
 				users.urban_zone, users.phone, users.email,
-				users.skills, users.resume, users.photo
+				users.skills, users.resume, users.photo,
+				users.blocked
             FROM
 				users
 			INNER JOIN countries

@@ -52,9 +52,29 @@
 }
 .form-ctn{
     display: flex;
-    justify-content: flex-start;
-    width: 100%;
 }
+.status{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    width: 3%;
+}
+.id{
+    background-color: rgba(216, 202, 139, 0.52);
+    border-radius: 4px;
+    padding: 3px;
+}
+.blocked{
+    transform: rotate(90deg);
+    background-color: red;
+    color: white;
+    font-size: 1.2rem;
+    padding:2px;
+    border-radius: 4px;
+}
+
 .form-list{
     border: 1.5px solid rgba(0, 0, 0, 0.15);
     display:flex;
