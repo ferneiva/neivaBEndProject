@@ -45,11 +45,7 @@
                 <div class="user-header">
                 
                     <?php
-                        if($user["blocked"]==1){
-                    ?>
-                        <h2>This User is blocked can't receive contacts</h2>
-                    <?php
-                        }
+                        
                     //  print_r($sessionUser["name"]);
                         $subjectMail="Email from a Help User " .$sessionUser["name"] .  " that wants to contact You";
                         $mailStandardMessage="<br>Please contact User name; " .$sessionUser["name"] .
