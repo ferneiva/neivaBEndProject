@@ -62,7 +62,12 @@
     text-align: center;
 }
 
-
+.status{
+    background-color: red;
+    border-radius: 6px;
+    color: white;
+    padding: 4px;
+}
 .user-info{
     width: 89%;
     min-height: 100px;

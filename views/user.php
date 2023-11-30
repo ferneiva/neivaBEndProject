@@ -43,49 +43,49 @@
             if(isset($_SESSION["user_id"])){
             ?>
                 <div class="user-header">
-                
                     <?php
-                        if($user["blocked"]==1){
-                    ?>
-                        <h2>This User is blocked can't receive contacts</h2>
-                    <?php
-                        }
-                    //  print_r($sessionUser["name"]);
-                        $subjectMail="Email from a Help User " .$sessionUser["name"] .  " that wants to contact You";
-                        $mailStandardMessage="<br>Please contact User name; " .$sessionUser["name"] .
-                        ", email; " .$sessionUser["email"].  " phone nr; " .$sessionUser["phone"]. " that is interested on your available slots.";
-                        // $destinationMail=$user["email"]; used a real mail:
-                        $destinationEmail="fernandojnfalmeida@gmail.com";
-                        $receiverEmail=$user["email"];
-                    ?>
-                    <form id="user-send-mail" method="post">    
-                        <div class=sent-mail>
-                            <div class="mail-title">
-                                <h2>Notify User to enter in contact</h2>
-                            </div>
-                            <div class="hidden-mail-inputs">
-                                
-                               
-                                <input type="text" name="name" id="name" value="<?=$sessionUser["name"]?>">
-                                <input type="email" name="email" id="email" value="<?=$receiverEmail?>">
-                                
-                                <input type="text" name="message" value="<?=$mailStandardMessage?>">
-                                <input type="hidden" name="receiver_email" value="<?=$destinationEmail?>">
 
-                            </div>
-                            <div class="mail-btn">
-                                <button class="go" type="submit" >Send Contact</button>
-                            </div>
-                        </div>
-                        <?php
-                        if (!empty($msg)) {
-                        echo "<h2 class='notification position'>$msg</h2>";
-                        }
-                        ?>
-                        <div class="mail-note">
-                                <h3>[User will receive an email with your interest and contacts]</h3>
-                        </div>
-                    </form>        
+                        if($user["blocked"]==0){
+                            // print_r($user["blocked"]);
+                            $subjectMail="Email from a Help User " .$sessionUser["name"] .  " that wants to contact You";
+                            $mailStandardMessage="<br>Please contact User name; " .$sessionUser["name"] .
+                            ", email; " .$sessionUser["email"].  " phone nr; " .$sessionUser["phone"]. " that is interested on your available slots.";
+                            // $destinationMail=$user["email"]; used a real mail:
+                            $destinationEmail="fernandojnfalmeida@gmail.com";
+                            $receiverEmail=$user["email"];
+                    ?>
+                            <form id="user-send-mail" method="post">    
+                                <div class=sent-mail>
+                                    <div class="mail-title">
+                                        <h2>Notify User to enter in contact</h2>
+                                    </div>
+                                    <div class="hidden-mail-inputs">
+                                        
+                                    
+                                        <input type="text" name="name" id="name" value="<?=$sessionUser["name"]?>">
+                                        <input type="email" name="email" id="email" value="<?=$receiverEmail?>">
+                                        
+                                        <input type="text" name="message" value="<?=$mailStandardMessage?>">
+                                        <input type="hidden" name="receiver_email" value="<?=$destinationEmail?>">
+
+                                    </div>
+                                    <div class="mail-btn">
+                                        <button class="go" type="submit" >Send Contact</button>
+                                    </div>
+                                </div>
+                                <?php
+                                    if (!empty($msg)) {
+                                        echo "<h2 class='notification position'>$msg</h2>";
+                                    }
+                                ?>
+                                <div class="mail-note">
+                                        <h3>[User will receive an email with your interest and contacts]</h3>
+                                </div>
+                            </form>
+                    <?php
+                    }
+                    else {echo"<h2 class='status'>This User has the account suspended</h2>";}
+                    ?>
                 </div>
             <?php
             }
